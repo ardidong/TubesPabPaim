@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".hasilActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:paddingTop="10dp"
+            android:gravity="center"
+            android:text="Kesehatan Mental Anda Ada Di Tingkat">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NORMAL"
+            android:textStyle="bold"
+            android:textColor="@color/colorNormal"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            android:textSize="24sp"/>
+        <TextView
+            android:layout_width="150dp"
+            android:layout_gravity="center"
+            android:layout_height="150dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/ilustrasi"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="20sp"
+            android:layout_marginBottom="15dp"
+            android:text="Mengapa Demikian ?"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/detailDemikian"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="20sp"
+            android:layout_marginBottom="15dp"
+            android:text="Cara Mempertahankannya"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/detailDemikian"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonsolusi"
+
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="OK"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</ScrollView>
