@@ -1,4 +1,26 @@
 <resources>
     <string name="app_name">TubesPabPaim</string>
     <string name="detailDemikian">Lorem iptumnaksdnlansdkla lnlansdlansldasklndkasn adlkasndlnasdnlasnda alksdnlkad,samldknasld aldslkmamsdlkansdnaslknd nlaslkdmasdnlasnl klasdlkasndlknaslkkdnlasndkna lansdlansdjasld</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">Apa tuh?</string>
+    <string name="skip">LEWATI</string>
+    <string name="start">Kuy Mulai</string>
+
+    <string name="slide_one_title">FIRST!</string>
+    <string name="slide_one_description">Pertanyaan berikut berhubungan dengan masalah yang mungkin mengganggu Anda selama 30 hari terakhir.
+                                         Apabila Anda menganggap pertanyaan itu berlaku bagi Anda dan Anda mengalami masalah yang disebutkan
+                                         dalam 30 hari terakhir, berilah tandan centang pada kolom Y (ya)</string>
+
+    <string name="slide_two_title">SECOND!</string>
+    <string name="slide_two_description">Sebaliknya, Apabila Anda menganggap pertanyaan itu tidak berlaku bagi Anda dan Anda tidak mengalami
+                                         masalah yang disebutkan dalam 30 hari terakhir, berilah tanda centang pada kolom T (tidak). Jika
+                                         Anda tidak yakin tentang jawabannya, berilah jawaban yang paling sesuai di antara YA dan Tidak.</string>
+
+    <string name="slide_three_title">THIRD!</string>
+    <string name="slide_three_description">Kami tegaskan bahwa, jawaban Anda bersifat rahasia, dan akan digunakan hanya untuk membantu pemecahan
+                                           masalah Anda.</string>
+
+    <string name="start_slider_again">Mulai Lagi Slider</string>
+    <string name="home_screen">Home Screen!</string>
 </resources>
