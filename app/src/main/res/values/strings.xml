@@ -23,4 +23,12 @@
 
     <string name="start_slider_again">Mulai Lagi Slider</string>
     <string name="home_screen">Home Screen!</string>
+
+    <string-array name="pertanyaan">
+        <item>Pertanyaan 1</item>
+        <item>Pertanyaan 2</item>
+        <item>Pertanyaan 3</item>
+        <item>Pertanyaan 4</item>
+        <item>Pertanyaan 5</item>
+    </string-array>
 </resources>
