@@ -38,7 +38,7 @@ public class WelcomeActivity extends AppCompatActivity {
         // Mengecek launch activity sebelum memanggil setContentView
         prefManager = new PrefManager(this);
         if (!prefManager.isFirstTimeLaunch()) {
-            launchHomeScreen();
+            launchKuisioner();
             finish();
         }
 
@@ -74,7 +74,7 @@ public class WelcomeActivity extends AppCompatActivity {
         buttonSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launchHomeScreen();
+                launchKuisioner();
             }
         });
 
@@ -88,7 +88,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     // Move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
-                    launchHomeScreen();
+                    launchKuisioner();
                 }
             }
         });
@@ -121,6 +121,12 @@ public class WelcomeActivity extends AppCompatActivity {
     private void launchHomeScreen() {
         prefManager.setIsFirstTimeLaunch(false);
         startActivity(new Intent(WelcomeActivity.this, PetunjukActivity.class));
+        finish();
+    }
+
+    private void launchKuisioner() {
+        prefManager.setIsFirstTimeLaunch(false);
+        startActivity(new Intent(WelcomeActivity.this, KuisionerActivity.class));
         finish();
     }
 
