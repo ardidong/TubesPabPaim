@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.apahayo.tubespabpaim.Model.Pertanyaan;
@@ -23,6 +24,7 @@ public class KuisionerActivity extends AppCompatActivity {
     private PertanyaanAdapter mAdapter;
     private ProgressBar mProgressBar;
     private TextView mTerjawab;
+    private RadioGroup mRadioGroup;
     private int progres;
 
 
@@ -34,6 +36,7 @@ public class KuisionerActivity extends AppCompatActivity {
         mTerjawab = findViewById(R.id.tv_terjawab);
         mProgressBar = findViewById(R.id.pb_kuisioner);
         mRecyclerView = findViewById(R.id.recyclerView);
+        mRadioGroup = findViewById(R.id.radioPilihan);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         PagerSnapHelper helper = new PagerSnapHelper() ;
@@ -47,6 +50,7 @@ public class KuisionerActivity extends AppCompatActivity {
             @Override
             public void onChoiceClick(final int position) {
                 Handler handler = new Handler();
+
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -54,12 +58,14 @@ public class KuisionerActivity extends AppCompatActivity {
                             mJumlah.set(position,1);
                         }
 
+
                         progres = Collections.frequency(mJumlah,1);
                         mProgressBar.setProgress(progres);
                         mTerjawab.setText("Terjawab "+progres+" dari "+mPertanyaanData.size());
 
                         if(position<mJumlah.size()-1){
                             if(mJumlah.get(position+1)==0 ){
+
                                 mRecyclerView.smoothScrollToPosition(position+1);
                             }
                         }
@@ -68,12 +74,14 @@ public class KuisionerActivity extends AppCompatActivity {
             }
         });
 
+
         initializeData();
     }
 
     private void initializeData() {
         String[] pertanyaanList = getResources().getStringArray(R.array.pertanyaan);
         mPertanyaanData.clear();
+
 
 
         for (int i=0;i<pertanyaanList.length;i++){
@@ -85,5 +93,7 @@ public class KuisionerActivity extends AppCompatActivity {
 
         mJumlah = new ArrayList<Integer>(Collections.nCopies(mPertanyaanData.size(),0));
         mAdapter.notifyDataSetChanged();
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setItemViewCacheSize(mPertanyaanData.size());
     }
 }

@@ -18,9 +18,14 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
     private ArrayList<Pertanyaan> mPertanyaan;
     private Context context;
     private OnItemClickListener mListener;
+    private RadioGroup mRadioGroup;
+
+
+
 
     public interface OnItemClickListener {
         void onChoiceClick(int position);
+
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -30,6 +35,7 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
     public PertanyaanAdapter(ArrayList<Pertanyaan> mPertanyaan, Context context) {
         this.mPertanyaan = mPertanyaan;
         this.context = context;
+
     }
 
     @NonNull
@@ -37,6 +43,7 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
     public PertanyaanAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.kuisioner_list, parent, false);
         PertanyaanAdapter.ViewHolder vh = new PertanyaanAdapter.ViewHolder(v, mListener);
+        mRadioGroup.clearCheck();
         return vh;
     }
 
@@ -44,6 +51,7 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
     public void onBindViewHolder(@NonNull PertanyaanAdapter.ViewHolder holder, int position) {
         Pertanyaan currentPertanyaan = mPertanyaan.get(position);
         holder.bindTo(currentPertanyaan);
+
     }
 
     @Override
@@ -54,13 +62,15 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView mJudulPertanyaan;
 
-        private RadioGroup mRadioGroup;
+
+
+
+
 
         public ViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
             mJudulPertanyaan = itemView.findViewById(R.id.tv_pertanyaan);
             mRadioGroup = itemView.findViewById(R.id.radioPilihan);
-
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,8 +79,12 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
                             listener.onChoiceClick(position);
+                            mRadioGroup.clearCheck();
                         }
+
+
                     }
+
                 }
             });
 
@@ -84,12 +98,18 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
                         }
                     }
                 }
-            });
+
+            }
+
+            );
+
 
         }
 
         void bindTo(Pertanyaan currentPertanyaan) {
             mJudulPertanyaan.setText(currentPertanyaan.getSoal());
+
+
         }
 
     }
