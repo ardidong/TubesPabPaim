@@ -69,6 +69,7 @@ public class KuisionerActivity extends AppCompatActivity {
         });
 
         initializeData();
+        mRecyclerView.setItemViewCacheSize(mPertanyaanData.size());
     }
 
     private void initializeData() {
@@ -85,5 +86,6 @@ public class KuisionerActivity extends AppCompatActivity {
 
         mJumlah = new ArrayList<>(Collections.nCopies(mPertanyaanData.size(),0));
         mAdapter.notifyDataSetChanged();
+
     }
 }

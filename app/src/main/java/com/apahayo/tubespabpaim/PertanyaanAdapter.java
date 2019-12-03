@@ -45,7 +45,6 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
     public void onBindViewHolder(@NonNull PertanyaanAdapter.ViewHolder holder, int position) {
         Pertanyaan currentPertanyaan = mPertanyaan.get(position);
         holder.bindTo(currentPertanyaan);
-        holder.setOptions(currentPertanyaan, position);
     }
 
     @Override
@@ -55,16 +54,13 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView mJudulPertanyaan;
-        private RadioButton radioYa;
-        private RadioButton radioTidak;
+
         private RadioGroup mRadioGroup;
 
         public ViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
             mJudulPertanyaan = itemView.findViewById(R.id.tv_pertanyaan);
             mRadioGroup = itemView.findViewById(R.id.radioPilihan);
-            radioYa = itemView.findViewById(R.id.radioYa);
-            radioTidak = itemView.findViewById(R.id.radioTidak);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -79,21 +75,9 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
                 }
             });
 
-            radioYa.setOnClickListener(new View.OnClickListener() {
+            mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
-                public void onClick(View view) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onChoiceClick(position);
-                        }
-                    }
-                }
-            });
-
-            radioTidak.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+                public void onCheckedChanged(RadioGroup radioGroup, int i) {
                     if (listener != null) {
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION) {
@@ -109,23 +93,5 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
             mJudulPertanyaan.setText(currentPertanyaan.getSoal());
         }
 
-        public void setOptions(final Pertanyaan pertanyaan, int position) {
-            mRadioGroup.setTag(position);
-            if (pertanyaan.isAnswered) {
-                mRadioGroup.check(pertanyaan.checkedId);
-            } else {
-                mRadioGroup.check(-1);
-            }
-            mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    int pos = (int) group.getTag();
-                    Pertanyaan que = mPertanyaan.get(pos);
-                    que.isAnswered = true;
-                    que.checkedId = checkedId;
-                }
-            });
-
-        }
     }
 }
