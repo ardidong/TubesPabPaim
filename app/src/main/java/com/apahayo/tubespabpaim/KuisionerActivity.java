@@ -91,7 +91,7 @@ public class KuisionerActivity extends AppCompatActivity {
         mProgressBar.setMax(mPertanyaanData.size());
         mTerjawab.setText("Terjawab "+0+" dari "+mPertanyaanData.size());
 
-        mJumlah = new ArrayList<Integer>(Collections.nCopies(mPertanyaanData.size(),0));
+        mJumlah = new ArrayList<>(Collections.nCopies(mPertanyaanData.size(),0));
         mAdapter.notifyDataSetChanged();
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemViewCacheSize(mPertanyaanData.size());

@@ -1,7 +1,6 @@
 package com.apahayo.tubespabpaim.Model;
 
 public class Pertanyaan {
-
     private String Soal;
 
     public Pertanyaan(String soal) {
