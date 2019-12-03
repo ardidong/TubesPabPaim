@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pertanyaan">
+        <item>Apakah Anda sering menderita sakit kepala?</item>
+        <item>Apakah Anda kehilangan nafsu makan?</item>
+        <item>Apakah tidur Anda tidak lelap?</item>
+        <item>Apakah Anda mudah menjadi takut?</item>
+        <item>Apakah Anda merasa cemas, tegang dan khawatir?</item>
+        <item>Apakah tangan Anda gemetar?</item>
+        <item>Apakah Anda mengalami gangguan pencernaan</item>
+        <item>Apakah Anda merasa sulit berpikir jernih?</item>
+        <item>Apakah Anda merasa tidak bahagia?</item>
+        <item>Apakah Anda lebih sering menangis?</item>
+        <item>Apakah Anda merasa sulit untuk menikmati aktivitas sehari-hari?</item>
+        <item>Apakah Anda mengalami kesulitan untuk mengambil keputusan?</item>
+        <item>Apakah aktivitas/ tugas sehari-hari Anda terbengkalai?</item>
+        <item>Apakah Anda merasa tidak mampu berperan dalam kehidupan ini?</item>
+        <item>Apakah Anda kehilangan minat terhadap banyak hal?</item>
+        <item>Apakah Anda merasa tidak berharga?</item>
+        <item>Apakah Anda mempunyai pikiran untuk mengakhiri hidup Anda?</item>
+        <item>Apakah Anda merasa lelah sepanjang waktu?</item>
+        <item>Apakah Anda merasa tidak enak di perut?</item>
+        <item>Apakah Anda mudah lelah?</item>
+        <item>Apakah Anda merokok atau minum alkohol lebih banyak dari biasanya atau Apakah Anda menggunakan Narkoba?</item>
+        <item>Apakah Anda yakin bahwa seseorang mencoba menyelakai Anda dengan cara tertentu?</item>
+        <item>Apakah ada yang mengganggu atau hal yang tidak biasa dalam pikiran Anda?</item>
+        <item>Apakah Anda pernah mendengar suara tanpa tahu sumbernya atau yang orang lain tidak dapat mendengar?</item>
+        <item>Apakah Anda mengalami mimpi yang mengganggu tentang suatu bencana/musibah atau adakah saat-saat Anda seolah mengalami kembali kejadian bencana itu?</item>
+        <item>Apakah aNda menghindari kegiatan,tempat,orang atau pikiran yang mengingatkan Anda akan bencana tersebut?</item>
+        <item>Apakah minat Anda terhadap teman dan kegiatan yang biasa Anda Lakukan berkurang?</item>
+        <item>Apakah Anda merasa sangat terganggu jika berada dalam situasi yang mengingatkan Anda akan bencana atau jika Anda berpikir tentang bencana itu?</item>
+        <item>Apakah Anda kesulitan memahami atau mengekspresikan perasaan Anda?</item>
+    </string-array>
+</resources>
