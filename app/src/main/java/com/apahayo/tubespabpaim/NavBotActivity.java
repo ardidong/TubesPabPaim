@@ -8,61 +8,52 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.ListFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NavBotActivity extends AppCompatActivity {
 
-    private BottomNavigationView mMainNav;
-    private FrameLayout mMainFrame;
-    private KegiatanFragment kegiatanFragment;
-    private MoodFragment moodFragment;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nav_bot);
-
-        mMainFrame = findViewById(R.id.main_frame);
-        mMainNav = findViewById(R.id.main_nav);
-
-        kegiatanFragment = new  KegiatanFragment();
-        moodFragment = new MoodFragment();
-
-        setFragment(kegiatanFragment);
+        setContentView(R.layout.activity_nav_button_baru);
 
 
-        mMainNav.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new KegiatanFragment()).commit();
 
-                switch (menuItem.getItemId()) {
 
-                    case R.id.nav_kegiatan:
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
-                        setFragment(kegiatanFragment);
 
-                    case R.id.nav_mood:
-                        mMainNav.setItemBackgroundResource(R.color.colorPrimary);
-                        setFragment(moodFragment);
 
-                        default:
+
+
+
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        Fragment selectedFragment = null;
+
+                        switch (menuItem.getItemId()){
+                            case R.id.nav_kegiatan:
+                                selectedFragment = new KegiatanFragment();
+                                break;
+                            case R.id.nav_mood:
+                                selectedFragment = new MoodFragment();
+                                break;
+                        }
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                                selectedFragment).commit();
+
+                        return true;
                 }
-            }
-
-            private void setFragment(Fragment fragment) {
-
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.main_frame, fragment);
-                fragmentTransaction.commit();
-            }
-
-        });
-    }
-
-    private void setFragment(KegiatanFragment kegiatanFragment) {
-    }
+            };
 
 }
-
