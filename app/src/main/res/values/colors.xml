@@ -6,6 +6,10 @@
     <color name="colorYa">#6BABFF</color>
     <color name="colorNormal">#1FB714</color>
     <color name="colorTidak">#F56A6A</color>
+    SS
+        <color name="colorNavIcon">#dae9f6</color>
+        <color name="colorNavText">#01294b</color>
+
 
 
     <!-- Screens background color -->
@@ -37,4 +41,7 @@
         <item>@color/dot_dark_screen_two</item>
         <item>@color/dot_dark_screen_three</item>
     </array>
+    
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhiteTransparent">#80ffffff</color>
 </resources>

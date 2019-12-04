@@ -44,7 +44,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
         // Membuat transparan notifikasi
         if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
 
         viewPager = findViewById(R.id.view_pager);
@@ -52,7 +53,7 @@ public class WelcomeActivity extends AppCompatActivity {
         buttonSkip = findViewById(R.id.button_skip);
         buttonNext = findViewById(R.id.button_next);
 
-        // Layout xml slide 1 sampai 4
+        // Layout xml slide 1 sampai 3
         // Add few more layout if you want
         layouts = new int[] {
                 R.layout.slide_one,
@@ -120,7 +121,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchHomeScreen() {
         prefManager.setIsFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, PetunjukActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, NavBotActivity.class));
         finish();
     }
 

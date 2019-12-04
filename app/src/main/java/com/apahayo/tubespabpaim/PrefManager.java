@@ -23,7 +23,7 @@ public class PrefManager {
         editor = preferences.edit();
     }
 
-    public void setIsFirstTimeLaunch(boolean isFirstTime) {
+        public void setIsFirstTimeLaunch(boolean isFirstTime) {
         editor.putBoolean(IS_FIRST_TIME_LAUNCH, isFirstTime);
     }
 
