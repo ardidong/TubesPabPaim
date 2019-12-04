@@ -44,7 +44,6 @@
         <item>@color/dot_dark_screen_two</item>
         <item>@color/dot_dark_screen_three</item>
     </array>
-    
-    <color name="colorWhite">#ffffff</color>
+
     <color name="colorWhiteTransparent">#80ffffff</color>
 </resources>
