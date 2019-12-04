@@ -7,24 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class HasilActivity extends AppCompatActivity {
 
-    private Button btnMulai;
+    private Button btnOK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        btnMulai = findViewById(R.id.btn_mulai);
+        setContentView(R.layout.activity_hasil);
 
-        btnMulai.setOnClickListener(new View.OnClickListener() {
+        btnOK = findViewById(R.id.btn_ok);
+
+        btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
+                startActivity(new Intent(HasilActivity.this, NavBotActivity.class));
                 finish();
             }
         });
 
+
+
     }
 }
-

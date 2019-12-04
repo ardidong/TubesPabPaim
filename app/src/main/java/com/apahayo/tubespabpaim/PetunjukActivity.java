@@ -17,15 +17,15 @@ public class PetunjukActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PrefManager prefManager = new PrefManager(getApplicationContext());
-                prefManager.setIsFirstTimeLaunch(true);
-                startActivity(new Intent(PetunjukActivity.this, WelcomeActivity.class));
-                finish();
-            }
-        });
+//        button = findViewById(R.id.button);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                PrefManager prefManager = new PrefManager(getApplicationContext());
+//                prefManager.setIsFirstTimeLaunch(true);
+//                startActivity(new Intent(PetunjukActivity.this, WelcomeActivity.class));
+//                finish();
+//            }
+//        });
     }
 }

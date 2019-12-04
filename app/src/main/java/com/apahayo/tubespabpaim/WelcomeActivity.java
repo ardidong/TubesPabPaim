@@ -38,7 +38,7 @@ public class WelcomeActivity extends AppCompatActivity {
         // Mengecek launch activity sebelum memanggil setContentView
         prefManager = new PrefManager(this);
         if (!prefManager.isFirstTimeLaunch()) {
-            launchHomeScreen();
+            launchKuisioner();
             finish();
         }
 
@@ -75,7 +75,7 @@ public class WelcomeActivity extends AppCompatActivity {
         buttonSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launchHomeScreen();
+                launchKuisioner();
             }
         });
 
@@ -89,7 +89,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     // Move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
-                    launchHomeScreen();
+                    launchKuisioner();
                 }
             }
         });
@@ -125,6 +125,12 @@ public class WelcomeActivity extends AppCompatActivity {
         finish();
     }
 
+    private void launchKuisioner() {
+        prefManager.setIsFirstTimeLaunch(false);
+        startActivity(new Intent(WelcomeActivity.this, KuisionerActivity.class));
+        finish();
+    }
+
     // Viewpager change listener
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
@@ -140,7 +146,7 @@ public class WelcomeActivity extends AppCompatActivity {
             if (i == layouts.length - 1) {
                 // Last page. make button text to GOT IT
                 buttonNext.setText(getString(R.string.start));
-                buttonSkip.setVisibility(View.GONE);
+                buttonSkip.setVisibility(View.VISIBLE);
             } else {
                 // Still pages are left
                 buttonNext.setText(getString(R.string.next));
