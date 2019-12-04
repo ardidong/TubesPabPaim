@@ -5,8 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -24,6 +27,7 @@ public class KuisionerActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private TextView mTerjawab;
     private int progres;
+    private Button submit;
 
 
     @Override
@@ -34,6 +38,7 @@ public class KuisionerActivity extends AppCompatActivity {
         mTerjawab = findViewById(R.id.tv_terjawab);
         mProgressBar = findViewById(R.id.pb_kuisioner);
         mRecyclerView = findViewById(R.id.recyclerView);
+        submit = findViewById(R.id.submit);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
         PagerSnapHelper helper = new PagerSnapHelper() ;
@@ -42,6 +47,7 @@ public class KuisionerActivity extends AppCompatActivity {
         mPertanyaanData = new ArrayList<>();
         mAdapter  = new PertanyaanAdapter(mPertanyaanData, this);
         mRecyclerView.setAdapter(mAdapter);
+
 
         mAdapter.setOnItemClickListener(new PertanyaanAdapter.OnItemClickListener() {
             @Override
@@ -63,12 +69,34 @@ public class KuisionerActivity extends AppCompatActivity {
                                 mRecyclerView.smoothScrollToPosition(position+1);
                             }
                         }
+
+                        if(position==mJumlah.size()-1){
+                            submit.setBackgroundResource(R.drawable.buttonsolusi);
+                            submit.setText("Selesai");
+                            submit.setTextColor(Color.parseColor("#FFFFFF"));
+                        }
+
                     }
                 }, 300);
             }
         });
 
         initializeData();
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Collections.frequency(mJumlah,1) == mPertanyaanData.size() ){
+
+                }else{
+                    for(int i=0;i<mJumlah.size();i++){
+                        if(mJumlah.get(i)==0){
+                            mRecyclerView.smoothScrollToPosition(i);
+                            break;
+                        }
+                    }
+                }
+            }
+        });
         mRecyclerView.setItemViewCacheSize(mPertanyaanData.size());
     }
 
@@ -88,4 +116,5 @@ public class KuisionerActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
 
     }
+
 }

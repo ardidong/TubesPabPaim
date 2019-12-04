@@ -6,7 +6,7 @@
     android:layout_marginLeft="32dp"
     android:layout_marginTop="8dp"
     android:layout_marginRight="32dp"
-    android:layout_marginBottom="32dp"
+    android:layout_marginBottom="8dp"
     app:cardCornerRadius="10dp">
 
     <LinearLayout
