@@ -1,10 +1,10 @@
-package com.apahayo.tubespabpaim;
+package com.apahayo.tubespabpaim.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apahayo.tubespabpaim.Model.Pertanyaan;
+import com.apahayo.tubespabpaim.R;
 
 import java.util.ArrayList;
 
@@ -66,24 +67,31 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onChoiceClick(position);
-                        }
-                    }
+
                 }
             });
 
             mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
-                public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onChoiceClick(position);
+                public void onCheckedChanged(RadioGroup radioGroup, int id) {
+                   if(id == R.id.radioYa){
+                       Log.d("__DebugRadio","Ya checked");
+                        if (listener != null) {
+                            int position = getAdapterPosition();
+                            if (position != RecyclerView.NO_POSITION) {
+                                listener.onChoiceClick(position);
+                            }
                         }
-                    }
+                   }else  if(id == R.id.radioTidak) {
+                       Log.d("__DebugRadio", "Tidak checked");
+                       if (listener != null) {
+                           int position = getAdapterPosition();
+                           if (position != RecyclerView.NO_POSITION) {
+                               listener.onChoiceClick(position);
+                           }
+                       }
+                   }
+
                 }
             });
 

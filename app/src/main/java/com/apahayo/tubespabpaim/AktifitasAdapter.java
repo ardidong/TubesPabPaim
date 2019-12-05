@@ -1,5 +1,7 @@
 package com.apahayo.tubespabpaim;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.apahayo.tubespabpaim.Model.Aktifitas;
 
 public class AktifitasAdapter extends RecyclerView.Adapter {
+    private final Activity activity;
+
+    public AktifitasAdapter(Activity activity) {
+        this.activity = activity;
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,10 +49,18 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
             mCheckBox = itemView.findViewById(R.id.aktifitasCB);
             mButton = itemView.findViewById(R.id.buttonDetail);
             itemView.setOnClickListener(this);
+            mButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    activity.startActivity(new Intent(activity,DetailAktifitas.class));
+
+
+                }
+            });
 
         }
 
-        public void bindView(int position){
+        public void bindView(int position)  {
             mCheckBox.setText(Aktifitas.Aktifitas[position]);
         }
 

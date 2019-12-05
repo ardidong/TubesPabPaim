@@ -31,7 +31,7 @@ public class KegiatanFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_aktifitas, container, false);
         RecyclerView mRecyclerView = view.findViewById(R.id.listAktifitas);
 
-        AktifitasAdapter listAdapter = new AktifitasAdapter();
+        AktifitasAdapter listAdapter = new AktifitasAdapter(getActivity());
         mRecyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
