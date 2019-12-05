@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "234591155317",
+    "firebase_url": "https://mentalist-cb7e1.firebaseio.com",
+    "project_id": "mentalist-cb7e1",
+    "storage_bucket": "mentalist-cb7e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234591155317:android:647d106dc1fb0bef29743c",
+        "android_client_info": {
+          "package_name": "com.apahayo.tubespabpaim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234591155317-rbbbhrk81ktpeg8k11tu3svd6sngf6hp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF2y-HuF6GvnViCcdtwbRnypiz-o9zaDA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234591155317-rbbbhrk81ktpeg8k11tu3svd6sngf6hp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

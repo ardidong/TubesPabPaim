@@ -54,7 +54,6 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
                 public void onClick(View view) {
                     activity.startActivity(new Intent(activity,DetailAktifitas.class));
 
-
                 }
             });
 
