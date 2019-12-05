@@ -23,6 +23,6 @@
 
     <string name="nav_kegiatan">kegiatan</string>
     <string name="nav_mood">mood</string>
-
-
+    <string name="textDeskripsiLogo">Copyright by ApahayoCorp.</string>
+    <string name="text_judul">MENTALIST </string>
 </resources>
