@@ -46,10 +46,12 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/btnUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Update"
                 android:elevation="5dp"
+                android:textColor="@android:color/white"
                 android:background="@drawable/buttonsolusi"/>
 
             </LinearLayout>

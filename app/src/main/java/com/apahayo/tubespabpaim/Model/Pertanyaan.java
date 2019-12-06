@@ -5,7 +5,9 @@ public class Pertanyaan {
     public long id;
     public int checkedId = -1;
     public boolean isAnswered;
+    public boolean answer;
     private String Soal;
+
 
     public Pertanyaan(String soal) {
         Soal = soal;
@@ -41,5 +43,13 @@ public class Pertanyaan {
 
     public void setAnswered(boolean answered) {
         isAnswered = answered;
+    }
+
+    public boolean isAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(boolean answer) {
+        this.answer = answer;
     }
 }

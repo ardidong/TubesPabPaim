@@ -22,7 +22,7 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
-        void onChoiceClick(int position);
+        void onChoiceClick(int position, boolean answer);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -79,7 +79,7 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
                         if (listener != null) {
                             int position = getAdapterPosition();
                             if (position != RecyclerView.NO_POSITION) {
-                                listener.onChoiceClick(position);
+                                listener.onChoiceClick(position,true);
                             }
                         }
                    }else  if(id == R.id.radioTidak) {
@@ -87,7 +87,7 @@ public class PertanyaanAdapter extends RecyclerView.Adapter<PertanyaanAdapter.Vi
                        if (listener != null) {
                            int position = getAdapterPosition();
                            if (position != RecyclerView.NO_POSITION) {
-                               listener.onChoiceClick(position);
+                               listener.onChoiceClick(position, false);
                            }
                        }
                    }

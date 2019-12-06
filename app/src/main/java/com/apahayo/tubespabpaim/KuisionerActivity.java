@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.apahayo.tubespabpaim.Adapter.PertanyaanAdapter;
+import com.apahayo.tubespabpaim.Model.Interpretasi;
 import com.apahayo.tubespabpaim.Model.Pertanyaan;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class KuisionerActivity extends AppCompatActivity {
 
         mAdapter.setOnItemClickListener(new PertanyaanAdapter.OnItemClickListener() {
             @Override
-            public void onChoiceClick(final int position) {
+            public void onChoiceClick(final int position, final boolean answer) {
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -62,6 +63,7 @@ public class KuisionerActivity extends AppCompatActivity {
                             mJumlah.set(position, 1);
                         }
 
+                        mPertanyaanData.get(position).setAnswer(answer);
                         progres = Collections.frequency(mJumlah, 1);
                         mProgressBar.setProgress(progres);
                         mTerjawab.setText("Terjawab " + progres + " dari " + mPertanyaanData.size());
@@ -88,8 +90,16 @@ public class KuisionerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (progres == mPertanyaanData.size()) {
-                    startActivity(new Intent(KuisionerActivity.this, HasilActivity.class));
+
+                    Interpretasi interpretasi = new Interpretasi(mPertanyaanData);
+                    interpretasi.hitungIndikasi();
+
+                    Intent intent = new Intent(KuisionerActivity.this,HasilActivity.class);
+                    String indikasi = interpretasi.getIndikasi();
+                    intent.putExtra("indikasi",indikasi);
+                    startActivity(intent);
                     finish();
+
                 } else {
                     for (int i = 0; i < mJumlah.size(); i++) {
                         if (mJumlah.get(i) == 0) {
