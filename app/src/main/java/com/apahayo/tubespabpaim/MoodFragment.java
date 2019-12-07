@@ -2,6 +2,7 @@ package com.apahayo.tubespabpaim;
 
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import android.widget.RadioGroup;
 import androidx.fragment.app.Fragment;
 
 import com.apahayo.tubespabpaim.Model.Mood;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,6 +36,9 @@ public class MoodFragment extends Fragment {
     private int value = 0;
     private Mood currentMood;
     private ImageView emotImageView;
+    private Button btnLogout;
+    FirebaseAuth mAuth;
+    FirebaseUser user;
 
 
     public MoodFragment() {
@@ -94,7 +100,7 @@ public class MoodFragment extends Fragment {
                             Log.d("__DEBUG_DATE", timeFormat.format(date));
                             Log.d("__DEBUG_DATE", date.toString());
 
-                            Mood mood = new Mood(date,value);
+                            Mood mood = new Mood(date, value);
                             updateMood(mood);
                         } else {
                             Log.d("__DEBUG_DATE", "No Input");
@@ -103,6 +109,24 @@ public class MoodFragment extends Fragment {
                     }
                 });
 
+
+            }
+        });
+
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+
+
+        btnLogout = view.findViewById(R.id.logoutBtn);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                getActivity().finish();
 
             }
         });

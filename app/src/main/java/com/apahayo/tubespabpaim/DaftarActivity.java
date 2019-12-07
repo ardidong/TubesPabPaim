@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -37,7 +38,7 @@ public class DaftarActivity extends AppCompatActivity {
 
     private DatabaseReference database;
     FirebaseAuth mAuth;
-    private EditText nama;
+    private EditText nama,email,password;
     private Button daftar;
     FirebaseAuth.AuthStateListener mAuthListener;
     private final static String TAG = "test ganss";
@@ -60,6 +61,8 @@ public class DaftarActivity extends AppCompatActivity {
         nama = findViewById(R.id.namaET);
         daftar = findViewById(R.id.daftarBtn);
         signInButton = findViewById(R.id.googleBtn);
+        email= findViewById(R.id.emailET);
+        password = findViewById(R.id.passwordET);
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance().getReference();
 
@@ -70,12 +73,53 @@ public class DaftarActivity extends AppCompatActivity {
             }
         });
 
+        daftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    mAuth.createUserWithEmailAndPassword(email.getText().toString(),
+                            password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(DaftarActivity.this, "Daftar Berhasil Silahkan Cek Email Anda Untuk Verifikasi !", Toast.LENGTH_LONG)
+                                                    .show();
+
+                                            email.setText("");
+                                            password.setText("");
+                                            nama.setText("");
+                                        } else {
+                                            Toast.makeText(DaftarActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG)
+                                                    .show();
+
+                                        }
+                                    }
+                                });
+                            } else {
+                                Toast.makeText(DaftarActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG)
+                                        .show();
+                            }
+                        }
+                    });
+                }catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Ada data yang kosong!", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
              if (firebaseAuth.getCurrentUser() != null){
-                 startActivity(new Intent (DaftarActivity.this,WelcomeActivity.class));
+                 Intent intent = new Intent(DaftarActivity.this,WelcomeActivity.class);
+                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                 startActivity(intent);
              }
             }
         };
@@ -145,4 +189,8 @@ public class DaftarActivity extends AppCompatActivity {
     }
 
 
+    public void masukKuy(View view) {
+        Intent intent = new Intent(DaftarActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
 }
