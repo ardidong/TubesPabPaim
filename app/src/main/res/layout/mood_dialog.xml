@@ -72,5 +72,17 @@
 
         </RadioGroup>
 
+        <Button
+            android:id="@+id/btn_update_emotion"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/buttonsolusi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textColor="@android:color/white"/>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

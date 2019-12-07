@@ -92,11 +92,11 @@ public class KuisionerActivity extends AppCompatActivity {
                 if (progres == mPertanyaanData.size()) {
 
                     Interpretasi interpretasi = new Interpretasi(mPertanyaanData);
-                    interpretasi.hitungIndikasi();
+                    //interpretasi.hitungIndikasi();
 
                     Intent intent = new Intent(KuisionerActivity.this,HasilActivity.class);
                     String indikasi = interpretasi.getIndikasi();
-                    intent.putExtra("indikasi",indikasi);
+                   // intent.putExtra("indikasi",indikasi);
                     startActivity(intent);
                     finish();
 
