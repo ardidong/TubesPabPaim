@@ -24,7 +24,7 @@ public class HasilActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String indikasi = intent.getStringExtra("indikasi");
 
-        tvIndikasi.setText(indikasi);
+        //tvIndikasi.setText(indikasi);
 
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override

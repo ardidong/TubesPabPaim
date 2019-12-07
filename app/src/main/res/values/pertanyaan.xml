@@ -5,6 +5,7 @@
         <item>Apakah Anda kehilangan nafsu makan?</item>
         <item>Apakah tidur Anda tidak lelap?</item>
         <item>Apakah Anda mudah menjadi takut?</item>
+        <!--
         <item>Apakah Anda merasa cemas, tegang dan khawatir?</item>
         <item>Apakah tangan Anda gemetar?</item>
         <item>Apakah Anda mengalami gangguan pencernaan</item>
@@ -30,5 +31,6 @@
         <item>Apakah minat Anda terhadap teman dan kegiatan yang biasa Anda Lakukan berkurang?</item>
         <item>Apakah Anda merasa sangat terganggu jika berada dalam situasi yang mengingatkan Anda akan bencana atau jika Anda berpikir tentang bencana itu?</item>
         <item>Apakah Anda kesulitan memahami atau mengekspresikan perasaan Anda?</item>
+    -->
     </string-array>
 </resources>
