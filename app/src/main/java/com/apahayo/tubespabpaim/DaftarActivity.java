@@ -116,7 +116,7 @@ public class DaftarActivity extends AppCompatActivity {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-             if (firebaseAuth.getCurrentUser() != null){
+             if (firebaseAuth.getCurrentUser() != null && firebaseAuth.getCurrentUser().isEmailVerified()){
                  Intent intent = new Intent(DaftarActivity.this,WelcomeActivity.class);
                  intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                  startActivity(intent);

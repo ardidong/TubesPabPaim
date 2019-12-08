@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() != null){
+                if (firebaseAuth.getCurrentUser() != null && firebaseAuth.getCurrentUser().isEmailVerified()){
                     Intent intent = new Intent(LoginActivity.this,WelcomeActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
@@ -61,8 +61,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-
-
                     mAuth.signInWithEmailAndPassword(userEmail.getText().toString(),
                             userPass.getText().toString())
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
