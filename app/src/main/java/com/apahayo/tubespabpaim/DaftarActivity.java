@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.apahayo.tubespabpaim.Model.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -88,6 +89,10 @@ public class DaftarActivity extends AppCompatActivity {
                                         if (task.isSuccessful()) {
                                             Toast.makeText(DaftarActivity.this, "Daftar Berhasil Silahkan Cek Email Anda Untuk Verifikasi !", Toast.LENGTH_LONG)
                                                     .show();
+
+                                            User user = new User(email.getText().toString(),nama.getText().toString());
+                                            String uid = mAuth.getCurrentUser().getUid();
+                                            database.child("users").child(uid).setValue(user);
 
                                             email.setText("");
                                             password.setText("");

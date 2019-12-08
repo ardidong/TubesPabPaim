@@ -20,6 +20,8 @@ import androidx.fragment.app.Fragment;
 import com.apahayo.tubespabpaim.Model.Mood;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,6 +35,7 @@ import java.util.Locale;
  */
 public class MoodFragment extends Fragment {
 
+    private DatabaseReference dbRefrence;
     private int value = 0;
     private Mood currentMood;
     private ImageView emotImageView;
@@ -101,6 +104,11 @@ public class MoodFragment extends Fragment {
                             Log.d("__DEBUG_DATE", date.toString());
 
                             Mood mood = new Mood(date, value);
+
+                            String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+                            dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
+                            dbRefrence.child(uid).push().setValue(mood);
+
                             updateMood(mood);
                         } else {
                             Log.d("__DEBUG_DATE", "No Input");
