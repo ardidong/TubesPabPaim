@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,26 +42,18 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
 
     private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        private CheckBox mCheckBox;
+        private TextView kegiatanTV;
         private Button mButton;
 
         public ListViewHolder(View itemView){
             super(itemView);
-            mCheckBox = itemView.findViewById(R.id.aktifitasCB);
-            mButton = itemView.findViewById(R.id.buttonDetail);
-            itemView.setOnClickListener(this);
-            mButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    activity.startActivity(new Intent(activity,DetailAktifitas.class));
+            kegiatanTV = itemView.findViewById(R.id.kegiatanTV);
 
-                }
-            });
 
         }
 
         public void bindView(int position)  {
-            mCheckBox.setText(Aktifitas.Aktifitas[position]);
+            kegiatanTV.setText(Aktifitas.Aktifitas[position]);
         }
 
         public void onClick(View view){
