@@ -12,6 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.apahayo.tubespabpaim.Model.Mood;
+
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,7 +35,9 @@ public class KegiatanFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_aktifitas, container, false);
         RecyclerView mRecyclerView = view.findViewById(R.id.listAktifitas);
 
-        AktifitasAdapter listAdapter = new AktifitasAdapter(getActivity());
+
+        ArrayList<Mood> mood = new ArrayList<>();
+        AktifitasAdapter listAdapter = new AktifitasAdapter(getActivity(),mood);
         mRecyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);

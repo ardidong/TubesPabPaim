@@ -6,19 +6,44 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.apahayo.tubespabpaim.Model.Mood;
+import com.apahayo.tubespabpaim.Model.Pertanyaan;
+
+import java.util.ArrayList;
+
 public class HalamanUtama extends AppCompatActivity {
+
+    private ArrayList<Mood> moodList;
+    private AktifitasAdapter aktifitasAdapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_halaman_utama);
 
-        RecyclerView mRecyclerView = findViewById(R.id.listKegiatan);
+        recyclerView = findViewById(R.id.listKegiatan);
 
-        AktifitasAdapter listAdapter = new AktifitasAdapter(HalamanUtama.this);
-        mRecyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(HalamanUtama.this);
-        mRecyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(layoutManager);
+
+        moodList = new ArrayList<>();
+        aktifitasAdapter= new AktifitasAdapter(HalamanUtama.this,moodList);
+        recyclerView.setAdapter(aktifitasAdapter);
+
+        initialize();
+
+    }
+
+
+    public void initialize(){
+        String[] mood = getResources().getStringArray(R.array.kegiatan);
+
+        for (int i = 0; i < mood.length; i++) {
+            moodList.add(new Mood(mood[i]));
+        }
+
+        aktifitasAdapter.notifyDataSetChanged();
 
     }
 }

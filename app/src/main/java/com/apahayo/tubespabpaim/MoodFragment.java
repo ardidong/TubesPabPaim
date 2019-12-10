@@ -103,13 +103,13 @@ public class MoodFragment extends Fragment {
                             Log.d("__DEBUG_DATE", timeFormat.format(date));
                             Log.d("__DEBUG_DATE", date.toString());
 
-                            Mood mood = new Mood(date, value);
-
-                            String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
-                            dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
-                            dbRefrence.child(uid).push().setValue(mood);
-
-                            updateMood(mood);
+//                            Mood mood = new Mood(date, value);
+//
+//                            String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+//                            dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
+//                            dbRefrence.child(uid).push().setValue(mood);
+//
+//                            updateMood(mood);
                         } else {
                             Log.d("__DEBUG_DATE", "No Input");
                         }

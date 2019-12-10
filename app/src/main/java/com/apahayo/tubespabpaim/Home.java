@@ -16,7 +16,7 @@ public class Home extends Application {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if (firebaseUser!= null && firebaseUser.isEmailVerified()) {
-            Intent intent = new Intent(Home.this, NavBotActivity.class);
+            Intent intent = new Intent(Home.this, HalamanUtama.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }

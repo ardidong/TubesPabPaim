@@ -16,6 +16,7 @@
 
 
         <ImageView
+            android:id="@+id/moodImage"
             android:layout_width="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
@@ -38,6 +39,7 @@
                 android:textSize="20sp"
                 android:text="NUGAS"/>
             <TextView
+                android:id="@+id/waktuTV"
                 android:paddingTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

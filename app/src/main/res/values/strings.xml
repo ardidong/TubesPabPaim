@@ -25,4 +25,10 @@
     <string name="nav_mood">mood</string>
     <string name="textDeskripsiLogo">Copyright by ApahayoCorp.</string>
     <string name="text_judul">MENTALIST </string>
+
+    <string-array name="kegiatan">
+        <item>nugas</item>
+        <item>tidur</item>
+        <item>belajar</item>
+    </string-array>
 </resources>
