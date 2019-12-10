@@ -127,7 +127,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchKuisioner() {
         prefManager.setIsFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, HalamanUtama.class));
+        startActivity(new Intent(WelcomeActivity.this, NavBotActivity.class));
         finish();
     }
 

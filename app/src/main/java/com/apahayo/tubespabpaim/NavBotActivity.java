@@ -25,7 +25,7 @@ public class NavBotActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new KegiatanFragment()).commit();
+                new HalamanUtamaFragment()).commit();
 
 
 
@@ -43,11 +43,16 @@ public class NavBotActivity extends AppCompatActivity {
 
                         switch (menuItem.getItemId()){
                             case R.id.nav_kegiatan:
-                                selectedFragment = new KegiatanFragment();
+                                selectedFragment = new HalamanUtamaFragment();
                                 break;
-                            case R.id.nav_mood:
-                                selectedFragment = new MoodFragment();
+                            case R.id.nav_cerita:
+                                selectedFragment = new NambahCeritaFragment();
                                 break;
+
+                            case R.id.nav_profil:
+                                selectedFragment = new ProfilUserFragment();
+                                break;
+
                         }
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                                 selectedFragment).commit();

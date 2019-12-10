@@ -4,9 +4,13 @@
     <item
         android:id="@+id/nav_kegiatan"
         android:icon="@drawable/ic_action_kegiatan"
-        android:title="@string/nav_kegiatan" />
+        android:title="Kegiatan" />
     <item
-        android:id="@+id/nav_mood"
+        android:id="@+id/nav_cerita"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="Cerita" />
+    <item
+        android:id="@+id/nav_profil"
         android:icon="@drawable/ic_action_mood"
-        android:title="@string/nav_mood" />
+        android:title="Profil" />
 </menu>
