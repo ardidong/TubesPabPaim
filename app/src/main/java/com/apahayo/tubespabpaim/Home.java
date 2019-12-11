@@ -19,6 +19,7 @@ public class Home extends Application {
             Intent intent = new Intent(Home.this, NavBotActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+
         }
 
 

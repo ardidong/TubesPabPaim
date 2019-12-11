@@ -101,7 +101,7 @@ public class MoodFragment extends Fragment {
                             Date date = new Date();
                             Log.d("__DEBUG_DATE", formatter.format(date));
                             Log.d("__DEBUG_DATE", timeFormat.format(date));
-                            Log.d("__DEBUG_DATE", date.toString());
+                            Log.d("__DEBxG_DATE", date.toString());
 
 //                            Mood mood = new Mood(date, value);
 //

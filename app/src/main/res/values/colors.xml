@@ -46,4 +46,10 @@
     </array>
 
     <color name="colorWhiteTransparent">#80ffffff</color>
+
+    <color name="sedihSekali" >#8E92FB</color>
+    <color name="sedih" >#65A4DA</color>
+    <color name="netral" >#777777</color>
+    <color name="senang" >#FED34E</color>
+    <color name="senangSekali" >#F38240</color>
 </resources>
