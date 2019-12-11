@@ -1,6 +1,8 @@
 package com.apahayo.tubespabpaim;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.apahayo.tubespabpaim.Model.Mood;
 import com.google.firebase.auth.FirebaseAuth;
@@ -108,6 +111,33 @@ public class NambahCeritaFragment extends Fragment {
                 String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
                 dbRefrence.child(uid).push().setValue(mood);
+
+                AlertDialog.Builder myAlertt = new AlertDialog.Builder(getContext());
+                myAlertt.setTitle("Verifikasi");
+                myAlertt.setMessage("Apakah orderan sudah pasti ");
+
+                myAlertt.setPositiveButton("Sudah" , new
+                        DialogInterface.OnClickListener(){
+                            @Override
+                            public void onClick (DialogInterface dialog, int which){
+                                Intent intent = new Intent(getActivity(),NavBotActivity.class);
+                                startActivity(intent);
+                                getActivity().finish();
+
+
+
+                            }
+                        });
+
+                myAlertt.setNegativeButton("Belum" , new
+                        DialogInterface.OnClickListener(){
+                            @Override
+                            public void onClick (DialogInterface dialog, int which){
+                                Toast.makeText(getContext(), "Oke", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                myAlertt.show();
 
 
             }
