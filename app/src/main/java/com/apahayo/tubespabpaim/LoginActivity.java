@@ -66,10 +66,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null && firebaseAuth.getCurrentUser().isEmailVerified()){
-                    Intent intent = new Intent(LoginActivity.this,HalamanUtama.class);
+                    Intent intent = new Intent(LoginActivity.this,NavBotActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                     startActivity(intent);
+                    finish();
                 }
             }
         };
@@ -127,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        finish();
     }
 
     @Override
@@ -176,6 +178,7 @@ public class LoginActivity extends AppCompatActivity {
     public void masukKuy(View view) {
         Intent intent = new Intent(LoginActivity.this, DaftarActivity.class);
         startActivity(intent);
+
     }
 
 

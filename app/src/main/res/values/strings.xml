@@ -29,7 +29,10 @@
     <string-array name="kegiatan">
         <item>nugas</item>
         <item>tidur</item>
-        <item>belajar</item>
+        <item>belajar1</item>
+        <item>belajar2</item>
+        <item>belajar3</item>
+        <item>belajar4</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
