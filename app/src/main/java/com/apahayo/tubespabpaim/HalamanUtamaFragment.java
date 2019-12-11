@@ -32,6 +32,7 @@ public class HalamanUtamaFragment extends Fragment {
     private AktifitasAdapter aktifitasAdapter;
     private RecyclerView recyclerView;
     private TextView name;
+    private String uid;
 
 
     public HalamanUtamaFragment() {
@@ -48,7 +49,7 @@ public class HalamanUtamaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_halaman_utama, container, false);
         name = view.findViewById(R.id.namaUserTV);
 
-        String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
 
         db.child("nama").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -86,17 +87,24 @@ public class HalamanUtamaFragment extends Fragment {
     }
 
     public void initialize(){
-        String[] mood = getResources().getStringArray(R.array.kegiatan);
+        //String[] mood = getResources().getStringArray(R.array.kegiatan);
         moodList.clear();
 
-        for (int i = 0; i < mood.length; i++) {
-            moodList.add(new Mood(mood[i]));
-        }
-        moodList.get(0).setValue(1);
-        moodList.get(1).setValue(2);
-        moodList.get(2).setValue(3);
-        moodList.get(3).setValue(4);
-        moodList.get(4).setValue(5);
+        DatabaseReference aktifitasDB = FirebaseDatabase.getInstance().getReference().child("mood");
+        aktifitasDB.child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot moodDataSnapshot : dataSnapshot.getChildren()){
+                    Mood mood = moodDataSnapshot.getValue(Mood.class);
+                    moodList.add(mood);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         aktifitasAdapter.notifyDataSetChanged();
 

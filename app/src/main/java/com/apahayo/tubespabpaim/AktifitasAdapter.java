@@ -40,7 +40,7 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Mood currentMood = moodList.get(position);
+        Mood currentMood = moodList.get(getItemCount()-position-1);
         ((ListViewHolder)holder).bindView(currentMood);
     }
 
@@ -67,7 +67,6 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
         public void bindView(Mood currentMood)  {
             kegiatanTV.setText(currentMood.getJudul());
             waktuTV.setText("20menitlalu");
-            moodImage.setImageResource(R.drawable.ic_clicked_netral);
 
             switch (currentMood.getValue()){
                 case 1 :
@@ -84,6 +83,24 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
                     break;
                 case 5 :
                     cardView.setCardBackgroundColor(Color.parseColor("#FED34E"));
+                    break;
+            }
+
+            switch (currentMood.getValue()){
+                case 1 :
+                    moodImage.setImageResource(R.drawable.ic_mood_sedihsekali);
+                    break;
+                case 2 :
+                    moodImage.setImageResource(R.drawable.ic_mood_sedih);
+                    break;
+                case 3 :
+                    moodImage.setImageResource(R.drawable.ic_mood_netral);
+                    break;
+                case 4 :
+                    moodImage.setImageResource(R.drawable.ic_mood_senang);
+                    break;
+                case 5 :
+                    moodImage.setImageResource(R.drawable.ic_mood_senangsekali);
                     break;
             }
 
