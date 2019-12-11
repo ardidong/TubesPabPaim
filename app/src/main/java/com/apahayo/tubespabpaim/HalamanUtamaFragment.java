@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.apahayo.tubespabpaim.Model.Mood;
 import com.apahayo.tubespabpaim.Model.User;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,10 +31,12 @@ import java.util.ArrayList;
 public class HalamanUtamaFragment extends Fragment {
 
     private ArrayList<Mood> moodList;
+    private String uid,uidGoogle;
+    private GoogleSignInAccount acct;
     private AktifitasAdapter aktifitasAdapter;
+    private DatabaseReference database;
     private RecyclerView recyclerView;
     private TextView name;
-    private String uid;
 
 
     public HalamanUtamaFragment() {
@@ -48,65 +52,100 @@ public class HalamanUtamaFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_halaman_utama, container, false);
         name = view.findViewById(R.id.namaUserTV);
-
-        uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
-
-        db.child("nama").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String nama = dataSnapshot.getValue(String.class);
-                name.setText(nama);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        database = FirebaseDatabase.getInstance().getReference();
 
 
 
-        RecyclerView mRecyclerView = view.findViewById(R.id.timelineKegiatan);
+        acct = GoogleSignIn.getLastSignedInAccount(getActivity());
+        if (acct != null) {
+            String personName = acct.getDisplayName();
+            String personEmail = acct.getEmail();
+            String personId = acct.getId();
+            Uri personPhoto = acct.getPhotoUrl();
+            name.setText(personName);
+            uidGoogle = personId;
+        }else if (acct == null){
+            uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
+            db.child("nama").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String nama = dataSnapshot.getValue(String.class);
+                    name.setText(nama);
+                }
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(layoutManager);
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
 
 
-        moodList = new ArrayList<>();
-        aktifitasAdapter = new AktifitasAdapter(getActivity(),moodList);
-        mRecyclerView.setAdapter(aktifitasAdapter);
-        mRecyclerView.setItemViewCacheSize(moodList.size());
+            RecyclerView mRecyclerView = view.findViewById(R.id.timelineKegiatan);
+
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+            mRecyclerView.setLayoutManager(layoutManager);
 
 
+            moodList = new ArrayList<>();
+            aktifitasAdapter = new AktifitasAdapter(getActivity(), moodList);
+            mRecyclerView.setAdapter(aktifitasAdapter);
+            mRecyclerView.setItemViewCacheSize(moodList.size());
 
-        initialize();
 
-        return view;
+            initialize();
+
+            return view;
+
 
     }
 
     public void initialize(){
         //String[] mood = getResources().getStringArray(R.array.kegiatan);
         moodList.clear();
-
-        DatabaseReference aktifitasDB = FirebaseDatabase.getInstance().getReference().child("mood");
-        aktifitasDB.child(uid).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot moodDataSnapshot : dataSnapshot.getChildren()){
-                    Mood mood = moodDataSnapshot.getValue(Mood.class);
-                    moodList.add(mood);
+        if (acct != null) {
+            DatabaseReference aktifitasDB2 = FirebaseDatabase.getInstance().getReference().child("mood");
+            aktifitasDB2.child(uidGoogle).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot moodDataSnapshot : dataSnapshot.getChildren()) {
+                        Mood mood = moodDataSnapshot.getValue(Mood.class);
+                        moodList.add(mood);
+                    }
                 }
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
 
-            }
-        });
+
+
+
+        }else if (acct == null){
+            DatabaseReference aktifitasDB = FirebaseDatabase.getInstance().getReference().child("mood");
+            aktifitasDB.child(uid).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot moodDataSnapshot : dataSnapshot.getChildren()) {
+                        Mood mood = moodDataSnapshot.getValue(Mood.class);
+                        moodList.add(mood);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+        }
 
         aktifitasAdapter.notifyDataSetChanged();
+
+
 
     }
 

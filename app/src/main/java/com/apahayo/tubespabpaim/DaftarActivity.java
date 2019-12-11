@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -67,10 +68,18 @@ public class DaftarActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance().getReference();
 
+
+
+
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn();
+                switch (v.getId()){
+                    case R.id.googleBtn:
+                        signIn();
+                        break;
+                }
+
             }
         });
 
@@ -179,6 +188,8 @@ public class DaftarActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(DaftarActivity.this,NavBotActivity.class);
+                            startActivity(intent);
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -192,6 +203,8 @@ public class DaftarActivity extends AppCompatActivity {
                 });
 
     }
+
+
 
 
     public void masukKuy(View view) {

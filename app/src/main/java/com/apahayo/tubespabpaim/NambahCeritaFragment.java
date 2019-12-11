@@ -1,7 +1,10 @@
 package com.apahayo.tubespabpaim;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,8 +18,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.apahayo.tubespabpaim.Model.Mood;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -33,10 +40,13 @@ import java.util.Locale;
 public class NambahCeritaFragment extends Fragment {
     private Button btnLogout;
     private EditText namaKegiatan;
+    private GoogleSignInAccount acct;
     private RadioGroup emotGroup;
+    private String uid,uidGoogle;
     private int value = 0;
     private EditText detailKegiatan;
     private DatabaseReference dbRefrence;
+
     private ImageView emotImageView;
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -58,6 +68,14 @@ public class NambahCeritaFragment extends Fragment {
         detailKegiatan = view.findViewById(R.id.detailkegiatanET);
         emotImageView = view.findViewById(R.id.emotImageView);
         emotGroup = view.findViewById(R.id.emotGroup2);
+
+        acct = GoogleSignIn.getLastSignedInAccount(getActivity());
+        if (acct != null) {
+
+            String personId = acct.getId();
+
+            uidGoogle = personId;
+        }
 
         emotGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -90,10 +108,6 @@ public class NambahCeritaFragment extends Fragment {
             public void onClick(View v) {
                 String nama = namaKegiatan.getText().toString();
                 String detail = detailKegiatan.getText().toString();
-
-
-
-
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                 SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
                 Date date = new Date();
@@ -105,11 +119,71 @@ public class NambahCeritaFragment extends Fragment {
                 String waktu = timeFormat.format(date);
 
                 Mood mood = new Mood(tanggal, waktu, nama, value, detail);
-                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
-                dbRefrence.child(uid).push().setValue(mood);
+
+                if (acct != null) {
+                    dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
+                    dbRefrence.child(uidGoogle).push().setValue(mood);
+
+                    AlertDialog.Builder myAlertt = new AlertDialog.Builder(getContext());
+                    myAlertt.setTitle("Verifikasi");
+                    myAlertt.setMessage("Sudah di ceritakan semua nih? ");
+
+                    myAlertt.setPositiveButton("Sudah", new
+                            DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(getActivity(), NavBotActivity.class);
+                                    startActivity(intent);
+                                    getActivity().finish();
 
 
+                                }
+                            });
+
+                    myAlertt.setNegativeButton("Belum", new
+                            DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+
+                    myAlertt.show();
+
+
+                } else if (acct == null) {
+                    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
+                    dbRefrence.child(uid).push().setValue(mood);
+
+                    AlertDialog.Builder myAlertt = new AlertDialog.Builder(getContext());
+                    myAlertt.setTitle("Verifikasi");
+                    myAlertt.setMessage("Sudah di ceritakan semua nih? ");
+
+                    myAlertt.setPositiveButton("Sudah", new
+                            DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(getActivity(), NavBotActivity.class);
+                                    startActivity(intent);
+                                    getActivity().finish();
+
+
+                                }
+                            });
+
+                    myAlertt.setNegativeButton("Belum", new
+                            DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+
+                    myAlertt.show();
+
+
+                }
             }
         });
 

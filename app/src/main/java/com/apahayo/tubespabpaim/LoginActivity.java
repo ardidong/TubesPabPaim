@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.apahayo.tubespabpaim.Model.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -51,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         userEmail= findViewById(R.id.UseremailET);
         userPass = findViewById(R.id.UserpasswordET);
         loginBtn = findViewById(R.id.masukBtn);
-        signIn2Button = findViewById(R.id.google2Btn);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -76,12 +77,6 @@ public class LoginActivity extends AppCompatActivity {
         };
 
 
-        signIn2Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signIn();
-            }
-        });
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +156,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
