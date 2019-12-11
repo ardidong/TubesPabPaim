@@ -9,17 +9,19 @@ public class Mood {
     private String deskripsi;
     private int value;
 
-    public Mood() {
+    public Mood(String nama, String detail) {
+
     }
     public Mood(String judul) {
         this.judul = judul;
     }
 
-    public Mood(String tanggal, String waktu, String judul, int value) {
+    public Mood(String tanggal, String waktu, String judul, int value, String deskripsi) {
         this.tanggal = tanggal;
         this.waktu = waktu;
         this.judul = judul;
         this.value = value;
+        this.deskripsi = deskripsi;
     }
 
     public String getTanggal() {

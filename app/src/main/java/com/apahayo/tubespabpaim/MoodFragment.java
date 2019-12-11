@@ -72,19 +72,19 @@ public class MoodFragment extends Fragment {
                     @Override
                     public void onCheckedChanged(RadioGroup radioGroup, int id) {
                         switch (id) {
-                            case R.id.sedihSekali:
+                            case R.id.sedih1:
                                 value = 1;
                                 break;
-                            case R.id.sedih:
+                            case R.id.sedih2:
                                 value = 2;
                                 break;
-                            case R.id.netral:
+                            case R.id.netral1:
                                 value = 3;
                                 break;
-                            case R.id.senang:
+                            case R.id.senang1:
                                 value = 4;
                                 break;
-                            case R.id.senangSekali:
+                            case R.id.senang2:
                                 value = 5;
                                 break;
                         }
@@ -103,7 +103,7 @@ public class MoodFragment extends Fragment {
                             Log.d("__DEBUG_DATE", timeFormat.format(date));
                             Log.d("__DEBxG_DATE", date.toString());
 
-//                            Mood mood = new Mood(date, value);
+//                              Mood mood = new Mood(date, value);
 //
 //                            String uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
 //                            dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
