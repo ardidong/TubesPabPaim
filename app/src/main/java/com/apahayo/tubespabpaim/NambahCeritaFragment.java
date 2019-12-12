@@ -1,9 +1,11 @@
 package com.apahayo.tubespabpaim;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -83,31 +85,51 @@ public class NambahCeritaFragment extends Fragment {
         });
 
 
-
         Button ceritaBt = view.findViewById(R.id.ceritaBtn);
         ceritaBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nama = namaKegiatan.getText().toString();
-                String detail = detailKegiatan.getText().toString();
+                if (cekInput()) {
+                    String nama = namaKegiatan.getText().toString();
+                    String detail = detailKegiatan.getText().toString();
+                    Intent intent;
+                    Date waktu = new Date();
 
-                Date waktu = new Date();
+                    Mood mood = new Mood(waktu.toString(), nama, value, detail);
 
-                Mood mood = new Mood(waktu.toString(), nama, value, detail);
-
-                Intent intent = new Intent(getContext(),TambahQuoteSaranActivity.class);
-                intent.putExtra("data",mood);
-                startActivity(intent);
-//                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//                dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
-//                dbRefrence.child(uid).push().setValue(mood);
-
-
+                    if (value == 4 || value == 5 || value==3) {
+                        intent = new Intent(getContext(), TambahQuoteSaranActivity.class);
+                    } else {
+                        intent = new Intent(getContext(), SaranActivity.class);
+                    }
+                    intent.putExtra("data", mood);
+                    startActivity(intent);
+                } else {
+                    showAlert();
+                }
             }
         });
 
 
         return view;
+    }
+
+    private boolean cekInput() {
+        return namaKegiatan.length() != 0 && detailKegiatan.length() != 0 && value != 0;
+    }
+
+    public void showAlert(){
+        AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(getContext());
+        myAlertBuilder.setMessage("Pastikan semua telah diisi ya!");
+
+        myAlertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+
+            }
+        });
+
+        myAlertBuilder.show();
     }
 
 }
