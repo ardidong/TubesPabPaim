@@ -189,21 +189,19 @@ public class DaftarActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
                             acct = GoogleSignIn.getLastSignedInAccount(DaftarActivity.this);
-
-                            if (acct != null) {
                                 String personName = acct.getDisplayName();
                                 String personEmail = acct.getEmail();
                                 String personId = acct.getId();
                                 Uri personPhoto = acct.getPhotoUrl();
+                            User user2 = new User(personEmail,personName);
+                            String uid2 = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                                dbRefrence = FirebaseDatabase.getInstance().getReference().child("users");
-                                dbRefrence.child(personId).push().setValue(personName);
+                                database = FirebaseDatabase.getInstance().getReference().child("users");
+                                database.child(uid2).push().setValue(user2);
                                 Intent intent = new Intent(DaftarActivity.this,NavBotActivity.class);
                                 startActivity(intent);
 
-                            }
 
                             //updateUI(user);
                         } else {
