@@ -1,12 +1,15 @@
 package com.apahayo.tubespabpaim.Model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Mood {
+public class Mood implements Serializable {
+    private String Key;
     private String tanggal;
     private String waktu;
     private String judul;
     private String deskripsi;
+    private String quote;
     private int value;
 
     public Mood() {
@@ -22,6 +25,14 @@ public class Mood {
         this.judul = judul;
         this.value = value;
         this.deskripsi = deskripsi;
+    }
+
+    public String getKey() {
+        return Key;
+    }
+
+    public void setKey(String key) {
+        Key = key;
     }
 
     public String getTanggal() {
@@ -54,6 +65,14 @@ public class Mood {
 
     public void setDeskripsi(String deskripsi) {
         this.deskripsi = deskripsi;
+    }
+
+    public String getQuote() {
+        return quote;
+    }
+
+    public void setQuote(String quote) {
+        this.quote = quote;
     }
 
     public int getValue() {
