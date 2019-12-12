@@ -47,7 +47,7 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        Mood currentMood = moodList.get(getItemCount() - position - 1);
+        final Mood currentMood = moodList.get(getItemCount() - position - 1);
         ((ListViewHolder) holder).bindView(currentMood);
 
         try {
@@ -55,6 +55,15 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        ((ListViewHolder) holder).cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity,DetailMoodUser.class);
+                intent.putExtra("MOOD_DATA",currentMood);
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -119,7 +128,7 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
         }
 
         public void setTimeDiff(Mood mood) throws ParseException {
-            DateFormat formatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy", Locale.getDefault());
+            DateFormat formatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy", Locale.US);
             Date waktu;
 
             String www = mood.getWaktu();
@@ -133,10 +142,10 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
             long diffMinutes = diff / (60 * 1000) % 60;
             long diffHours = diff / (60 * 60 * 1000) % 24;
             long diffDays = diff / (24 * 60 * 60 * 1000);
-
             Log.d("__DEBUGSatu",diffSeconds+" "+diffMinutes);
 
             if(diffDays>=1){
+
                 waktuTV.setText(diffDays+" hari yang lalu");
             }else if(diffHours>=1){
                 waktuTV.setText(diffHours + " jam yang lalu");

@@ -128,7 +128,9 @@ public class HalamanUtamaFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot moodDataSnapshot : dataSnapshot.getChildren()) {
                         Mood mood = moodDataSnapshot.getValue(Mood.class);
+                        mood.setKey(moodDataSnapshot.getKey());
                         moodList.add(mood);
+
                     }
                 }
                 @Override
@@ -147,6 +149,7 @@ public class HalamanUtamaFragment extends Fragment {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot moodDataSnapshot : dataSnapshot.getChildren()) {
                         Mood mood = moodDataSnapshot.getValue(Mood.class);
+                        mood.setKey(moodDataSnapshot.getKey());
                         moodList.add(mood);
                     }
                 }
