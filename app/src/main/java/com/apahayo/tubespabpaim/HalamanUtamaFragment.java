@@ -62,8 +62,20 @@ public class HalamanUtamaFragment extends Fragment {
             String personEmail = acct.getEmail();
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
-            name.setText(personName);
             uidGoogle = personId;
+            DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(uidGoogle);
+            db.child("nama").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String nama = dataSnapshot.getValue(String.class);
+                    name.setText(nama);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }else if (acct == null){
             uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(uid);

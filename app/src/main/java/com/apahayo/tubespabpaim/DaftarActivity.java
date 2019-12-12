@@ -41,6 +41,8 @@ public class DaftarActivity extends AppCompatActivity {
     private DatabaseReference database;
     FirebaseAuth mAuth;
     private EditText nama,email,password;
+    private GoogleSignInAccount acct;
+    private DatabaseReference dbRefrence;
     private Button daftar;
     FirebaseAuth.AuthStateListener mAuthListener;
     private final static String TAG = "test ganss";
@@ -188,8 +190,21 @@ public class DaftarActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(DaftarActivity.this,NavBotActivity.class);
-                            startActivity(intent);
+                            acct = GoogleSignIn.getLastSignedInAccount(DaftarActivity.this);
+
+                            if (acct != null) {
+                                String personName = acct.getDisplayName();
+                                String personEmail = acct.getEmail();
+                                String personId = acct.getId();
+                                Uri personPhoto = acct.getPhotoUrl();
+
+                                dbRefrence = FirebaseDatabase.getInstance().getReference().child("users");
+                                dbRefrence.child(personId).push().setValue(personName);
+                                Intent intent = new Intent(DaftarActivity.this,NavBotActivity.class);
+                                startActivity(intent);
+
+                            }
+
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.apahayo.tubespabpaim.Model.Mood;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +30,7 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
 
     private TextView kataTV;
     private EditText quoteET;
+    private GoogleSignInAccount acct;
     private Button submitBtn;
     private Mood mood;
     private DatabaseReference dbRefrence;
@@ -59,19 +63,41 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
                 if(quoteET.length()!=0){
                     String quote = quoteET.getText().toString();
                     mood.setQuote(quote);
-                    String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
-                    dbRefrence.child(uid).push().setValue(mood, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-                            if (databaseError != null) {
-                                Snackbar.make(findViewById(R.id.btn_submit), "Data Gagal ditambahkan", Snackbar.LENGTH_LONG).show();
-                            } else {
-                                startActivity(new Intent(TambahQuoteSaranActivity.this, NavBotActivity.class));
-                                finish();
+
+                    acct = GoogleSignIn.getLastSignedInAccount(TambahQuoteSaranActivity.this);
+                    if (acct != null) {
+                        String personName = acct.getDisplayName();
+                        String personEmail = acct.getEmail();
+                        String personId = acct.getId();
+                        Uri personPhoto = acct.getPhotoUrl();
+                        dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
+                        dbRefrence.child(personId).push().setValue(mood, new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                                if (databaseError != null) {
+                                    Snackbar.make(findViewById(R.id.btn_submit), "Data Gagal ditambahkan", Snackbar.LENGTH_LONG).show();
+                                } else {
+                                    startActivity(new Intent(TambahQuoteSaranActivity.this, NavBotActivity.class));
+                                    finish();
+                                }
                             }
-                        }
-                    });
+                        });
+
+                    }else if (acct != null) {
+                        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
+                        dbRefrence.child(uid).push().setValue(mood, new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                                if (databaseError != null) {
+                                    Snackbar.make(findViewById(R.id.btn_submit), "Data Gagal ditambahkan", Snackbar.LENGTH_LONG).show();
+                                } else {
+                                    startActivity(new Intent(TambahQuoteSaranActivity.this, NavBotActivity.class));
+                                    finish();
+                                }
+                            }
+                        });
+                    }
                 }else{
                     showAlert();
                 }
