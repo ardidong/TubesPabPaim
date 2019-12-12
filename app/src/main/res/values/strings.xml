@@ -37,4 +37,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="saran">Jadi seperti itu ya kisahmu, pasti kamu merasa sangat tidak nyaman. Yuk sekarang coba perbaiki kondisi perasaanmu agar kamu
+        merasa lebihtenang dalam menghadapi permasalahan.</string>
+
+    <string name="Relaksasi"> Relaksasi Pernapasan</string>
+    <string name="Berpikir"> Berpikir Positif</string>
+    <string name="Meditasi"> Meditasi</string>
+    <string name="Ekspresif"> Ekspresif Therapy</string>
 </resources>

@@ -68,8 +68,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="400dp"
             android:layout_marginStart="20dp"
-            android:text="Self talk positive adaahasndkjanskdm asjkdnaskjdnma skjdnasd jandkjasndaskdkjasnk dnjkasndjansdkjnaskdn njandka"
+            android:text="Self talk positive adaaha sndkjanskdm asjkdnaskjdnma skjdnasd jandkjasndaskdkjasnk dnjkasndjansdkjnaskdn njandka"
             android:textSize="24sp"/>
+
 
     </RelativeLayout>
 
