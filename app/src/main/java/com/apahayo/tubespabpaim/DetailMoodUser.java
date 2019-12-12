@@ -139,6 +139,7 @@ public class DetailMoodUser extends AppCompatActivity {
 
                             Intent intent= new Intent(DetailMoodUser.this,NavBotActivity.class);
                             startActivity(intent);
+                            finish();
 
                         }
                     });
