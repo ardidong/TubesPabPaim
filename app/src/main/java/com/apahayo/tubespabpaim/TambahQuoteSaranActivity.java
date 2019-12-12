@@ -83,7 +83,7 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
                             }
                         });
 
-                    }else if (acct != null) {
+                    }else if (acct == null) {
                         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
                         dbRefrence.child(uid).push().setValue(mood, new DatabaseReference.CompletionListener() {

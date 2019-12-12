@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Mood implements Serializable {
-    private String Key;
-    private String tanggal;
+    private String key;
     private String waktu;
     private String judul;
     private String deskripsi;
@@ -15,32 +14,24 @@ public class Mood implements Serializable {
     public Mood() {
 
     }
+
     public Mood(String judul) {
         this.judul = judul;
     }
 
-    public Mood(String tanggal, String waktu, String judul, int value, String deskripsi) {
-        this.tanggal = tanggal;
+    public Mood(String waktu, String judul, int value,String deskripsi) {
         this.waktu = waktu;
         this.judul = judul;
-        this.value = value;
         this.deskripsi = deskripsi;
+        this.value = value;
     }
 
     public String getKey() {
-        return Key;
+        return key;
     }
 
     public void setKey(String key) {
-        Key = key;
-    }
-
-    public String getTanggal() {
-        return tanggal;
-    }
-
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
+        this.key = key;
     }
 
     public String getWaktu() {

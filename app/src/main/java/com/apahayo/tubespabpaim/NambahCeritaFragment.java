@@ -91,20 +91,9 @@ public class NambahCeritaFragment extends Fragment {
                 String nama = namaKegiatan.getText().toString();
                 String detail = detailKegiatan.getText().toString();
 
+                Date waktu = new Date();
 
-
-
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-                SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-                Date date = new Date();
-                Log.d("__DEBUG_DATE", formatter.format(date));
-                Log.d("__DEBUG_DATE", timeFormat.format(date));
-                Log.d("__DEBxG_DATE", date.toString());
-
-                String tanggal = formatter.format(date);
-                String waktu = timeFormat.format(date);
-
-                Mood mood = new Mood(tanggal, waktu, nama, value, detail);
+                Mood mood = new Mood(waktu.toString(), nama, value, detail);
 
                 Intent intent = new Intent(getContext(),TambahQuoteSaranActivity.class);
                 intent.putExtra("data",mood);
