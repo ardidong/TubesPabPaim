@@ -9,7 +9,7 @@ public class Mood {
     private String deskripsi;
     private int value;
 
-    public Mood(String nama, String detail) {
+    public Mood() {
 
     }
     public Mood(String judul) {
