@@ -28,25 +28,33 @@
             android:text="13.00"/>
         <TextView
             android:layout_width="wrap_content"
+            android:layout_marginBottom="20dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textSize="15sp"
             android:layout_marginStart="20dp"
             android:text="Pada waktu ini kamu merasa :"/>
 
         <ImageView
             android:layout_width="130dp"
             android:id="@+id/emotIV"
+            android:layout_marginBottom="20dp"
             android:layout_height="130dp"
             android:layout_gravity="center"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:textSize="15sp"
             android:layout_marginBottom="20dp"
             android:text="Ketika melakukan kegiatan "/>
         <TextView
             android:layout_width="350dp"
             android:id="@+id/judulKegiatanTV"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
@@ -61,6 +69,10 @@
         <TextView
             android:layout_width="350dp"
             android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:textSize="20dp"
+
             android:id="@+id/detailKegiatanTV"
             android:layout_marginBottom="20dp"
             android:layout_gravity="center"
@@ -68,11 +80,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="15sp"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="20dp"
             android:text="Dan kata kata yang kamu berikan"/>
         <TextView
             android:layout_width="350dp"
+            android:paddingTop="10dp"
+            android:paddingStart="20dp"
+            android:textSize="20dp"
             android:id="@+id/quoteTV"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -82,6 +98,7 @@
             android:layout_height="40dp"
             android:id="@+id/deleteBtn"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:text="HAPUS"
             android:background="@drawable/button_hapus"
             android:layout_gravity="center"
