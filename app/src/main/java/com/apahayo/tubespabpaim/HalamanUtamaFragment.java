@@ -1,6 +1,7 @@
 package com.apahayo.tubespabpaim;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -96,6 +97,7 @@ public class HalamanUtamaFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot moodDataSnapshot : dataSnapshot.getChildren()){
                     Mood mood = moodDataSnapshot.getValue(Mood.class);
+                    mood.setKey(dataSnapshot.getKey());
                     moodList.add(mood);
                 }
             }

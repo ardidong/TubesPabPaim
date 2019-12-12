@@ -105,9 +105,12 @@ public class NambahCeritaFragment extends Fragment {
                 String waktu = timeFormat.format(date);
 
                 Mood mood = new Mood(tanggal, waktu, nama, value, detail);
-                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
-                dbRefrence.child(uid).push().setValue(mood);
+                Intent intent = new Intent(getContext(),TambahQuoteSaranActivity.class);
+                intent.putExtra("data",mood);
+                startActivity(intent);
+//                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//                dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
+//                dbRefrence.child(uid).push().setValue(mood);
 
 
             }
