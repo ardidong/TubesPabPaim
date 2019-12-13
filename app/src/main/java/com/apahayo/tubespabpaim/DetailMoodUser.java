@@ -34,13 +34,14 @@ public class DetailMoodUser extends AppCompatActivity {
     private TextView tanggal,jam,kegiatan,detail,quote;
     private String uidGoogle;
     private ImageView emot;
+    private Button edit;
     private Mood mood;
     private Button buttonDelete;
     private GoogleSignInAccount acct;
     private AktifitasAdapter aktifitasAdapter;
     private DatabaseReference database;
-    private RecyclerView recyclerView;
-    private TextView name;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class DetailMoodUser extends AppCompatActivity {
         emot = findViewById(R.id.emotIV);
         database = FirebaseDatabase.getInstance().getReference();
         buttonDelete = findViewById(R.id.deleteBtn);
+        edit = findViewById(R.id.pindaheditBtn);
 
 
 
@@ -64,6 +66,7 @@ public class DetailMoodUser extends AppCompatActivity {
         kegiatan.setText(mood.getJudul());
         detail.setText(mood.getDeskripsi());
         quote.setText(mood.getQuote());
+
         acct = GoogleSignIn.getLastSignedInAccount(DetailMoodUser.this);
 
         switch (mood.getValue()) {
@@ -111,6 +114,15 @@ public class DetailMoodUser extends AppCompatActivity {
 
 
 
+        });
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetailMoodUser.this,EditMoodActivity.class);
+                intent.putExtra("MOOD_DATA",mood);
+                startActivity(intent);
+            }
         });
 
 

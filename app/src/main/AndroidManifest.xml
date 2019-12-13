@@ -10,8 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SaranActivity"></activity>
-        <activity android:name=".DetailMoodUser"></activity>
+        <activity android:name=".EditMoodActivity"></activity>
+        <activity android:name=".SaranActivity" />
+        <activity android:name=".DetailMoodUser" />
         <activity android:name=".TambahQuoteSaranActivity" />
         <activity
             android:name=".LoginActivity"
