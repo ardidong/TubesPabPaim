@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">TubesPabPaim</string>
+    <string name="app_name">Mentalist</string>
+    <string name="mentalist">Mentalist</string>
     <string name="detailDemikian">Lorem iptumnaksdnlansdkla lnlansdlansldasklndkasn adlkasndlnasdnlasnda alksdnlkad,samldknasld aldslkmamsdlkansdnaslknd nlaslkdmasdnlasnl klasdlkasndlknaslkkdnlasndkna lansdlansdjasld</string>
 
     <string name="title_activity_welcome">Home Screen</string>
