@@ -4,10 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -26,12 +32,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 public class TambahQuoteSaranActivity extends AppCompatActivity {
 
     private TextView kataTV;
     private EditText quoteET;
+    private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
     private GoogleSignInAccount acct;
+    private NotificationManager mNotifyManager;
+    private PendingIntent contentIntent;
     private Button submitBtn;
+    private static final int NOTIFICATION_ID = 0;
     private Mood mood;
     private DatabaseReference dbRefrence;
 
@@ -41,10 +53,12 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tambah_quote_saran);
 
         kataTV = findViewById(R.id.kata_quote_tv);
+
         quoteET = findViewById(R.id.quote_ET);
         submitBtn = findViewById(R.id.btn_submit);
 
         mood = (Mood) getIntent().getSerializableExtra("data");
+        createNotificationChannel();
 
         if (mood.getValue() == 4) {
             kataTV.setText(getResources().getString(R.string.kataSenang));
@@ -60,7 +74,28 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
                 imm.hideSoftInputFromWindow(
                         quoteET.getWindowToken(), 0);
 
-                if(quoteET.length()!=0){
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.HOUR_OF_DAY,7);
+                calendar.set(Calendar.MINUTE,0);
+                calendar.set(Calendar.SECOND,0);
+
+
+                Intent intent = new Intent(TambahQuoteSaranActivity.this,Notification_receiver.class);
+
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                        TambahQuoteSaranActivity.this,0,intent,0);
+                AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                        calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
+
+
+
+
+
+
+
+
+                if (quoteET.length() != 0) {
                     String quote = quoteET.getText().toString();
                     mood.setQuote(quote);
 
@@ -83,7 +118,7 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
                             }
                         });
 
-                    }else if (acct == null) {
+                    } else if (acct == null) {
                         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         dbRefrence = FirebaseDatabase.getInstance().getReference().child("mood");
                         dbRefrence.child(uid).push().setValue(mood, new DatabaseReference.CompletionListener() {
@@ -98,7 +133,7 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
                             }
                         });
                     }
-                }else{
+                } else {
                     showAlert();
                 }
 
@@ -107,9 +142,11 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
         });
 
 
+
+
     }
 
-    public void showAlert(){
+    public void showAlert() {
         AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(this);
         myAlertBuilder.setMessage("Pastikan kolom masukan diisi ya!");
 
@@ -121,6 +158,39 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
         });
 
         myAlertBuilder.show();
+    }
+
+    public void sendNotification() {
+
+        NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
+        mNotifyManager.notify(NOTIFICATION_ID, notifyBuilder.build());
+    }
+
+    public void createNotificationChannel() {
+        mNotifyManager = (NotificationManager)
+                getSystemService(NOTIFICATION_SERVICE);
+        if (android.os.Build.VERSION.SDK_INT >=
+                android.os.Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel("channel1",
+                    "Mascot Notification", NotificationManager
+                    .IMPORTANCE_HIGH);
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.enableVibration(true);
+            notificationChannel.setDescription("Notification from Mascot");
+            mNotifyManager.createNotificationChannel(notificationChannel);
+        }
+    }
+
+    private NotificationCompat.Builder getNotificationBuilder() {
+        NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID);
+        if (mood.getValue() == 4) {
+
+            notifyBuilder.setContentTitle("Wah sepertinya kamu akhir akhir ini senang sekali ya, bagaimana dengan hari ini?")
+                    .setSmallIcon(R.drawable.icon_launcher)
+                    .setContentIntent(contentIntent);
+        }
+        return notifyBuilder;
     }
 
 }

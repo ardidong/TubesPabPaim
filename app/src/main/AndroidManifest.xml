@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.apahayo.tubespabpaim">
 
+    <uses-permission android:name="android.permission.SET_ALARM"/>
+
     <application
         android:name=".Home"
         android:allowBackup="true"
@@ -52,9 +54,12 @@
             android:name=".HalamanUtama"
             android:screenOrientation="portrait" />
 
+        <receiver android:name=".Notification_receiver"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
+
 
 </manifest>
