@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -89,24 +90,7 @@ public class NambahCeritaFragment extends Fragment {
         ceritaBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (cekInput()) {
-                    String nama = namaKegiatan.getText().toString();
-                    String detail = detailKegiatan.getText().toString();
-                    Intent intent;
-                    Date waktu = new Date();
-
-                    Mood mood = new Mood(waktu.toString(), nama, value, detail);
-
-                    if (value == 4 || value == 5 || value==3) {
-                        intent = new Intent(getContext(), TambahQuoteSaranActivity.class);
-                    } else {
-                        intent = new Intent(getContext(), SaranActivity.class);
-                    }
-                    intent.putExtra("data", mood);
-                    startActivity(intent);
-                } else {
-                    showAlert();
-                }
+                launchNext();
             }
         });
 
@@ -118,7 +102,7 @@ public class NambahCeritaFragment extends Fragment {
         return namaKegiatan.length() != 0 && detailKegiatan.length() != 0 && value != 0;
     }
 
-    public void showAlert(){
+    public void showAlert() {
         AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(getContext());
         myAlertBuilder.setMessage("Pastikan semua telah diisi ya!");
 
@@ -130,6 +114,27 @@ public class NambahCeritaFragment extends Fragment {
         });
 
         myAlertBuilder.show();
+    }
+
+    public void launchNext() {
+        if (cekInput()) {
+            String nama = namaKegiatan.getText().toString();
+            String detail = detailKegiatan.getText().toString();
+            Intent intent;
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+
+            Mood mood = new Mood(timestamp.toString(), nama, value, detail);
+
+            if (value == 4 || value == 5 || value == 3) {
+                intent = new Intent(getContext(), TambahQuoteSaranActivity.class);
+            } else {
+                intent = new Intent(getContext(), SaranActivity.class);
+            }
+            intent.putExtra("data", mood);
+            startActivity(intent);
+        } else {
+            showAlert();
+        }
     }
 
 }

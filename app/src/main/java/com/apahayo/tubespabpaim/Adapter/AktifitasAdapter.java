@@ -22,6 +22,7 @@ import com.apahayo.tubespabpaim.Model.Aktifitas;
 import com.apahayo.tubespabpaim.Model.Mood;
 import com.apahayo.tubespabpaim.R;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -130,14 +131,15 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
         }
 
         public void setTimeDiff(Mood mood) throws ParseException {
-            DateFormat formatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy", Locale.US);
+            DateFormat formatter = new SimpleDateFormat("uuuu-MM-dd HH:mm:ss.SSS", Locale.US);
             Date waktu;
 
             String www = mood.getWaktu();
 
             waktu = formatter.parse(www);
 
-            Date now = new Date();
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            Date now = formatter.parse(timestamp.toString());
             long diff = now.getTime() - waktu.getTime();
 
             long diffSeconds = diff / 1000 % 60;
