@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.apahayo.tubespabpaim.Adapter.AktifitasAdapter;
 import com.apahayo.tubespabpaim.Model.Mood;
 
 import java.util.ArrayList;

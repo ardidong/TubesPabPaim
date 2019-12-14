@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="gejala">
+        <item name="pusing">pusing kepala</item>
+        <item name="perut">sakit perut</item>
+        <item name="gemetar">tangan gemetar</item>
+        <item name="insomnia">susah tidur</item>
+    </string-array>
+
+
+</resources>

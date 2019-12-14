@@ -1,4 +1,4 @@
-package com.apahayo.tubespabpaim;
+package com.apahayo.tubespabpaim.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,8 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.apahayo.tubespabpaim.DetailMoodUser;
 import com.apahayo.tubespabpaim.Model.Aktifitas;
 import com.apahayo.tubespabpaim.Model.Mood;
+import com.apahayo.tubespabpaim.R;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -59,7 +61,7 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
         ((ListViewHolder) holder).cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity,DetailMoodUser.class);
+                Intent intent = new Intent(activity, DetailMoodUser.class);
                 intent.putExtra("MOOD_DATA",currentMood);
                 activity.startActivity(intent);
             }

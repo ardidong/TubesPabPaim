@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.apahayo.tubespabpaim.Adapter.AktifitasAdapter;
 import com.apahayo.tubespabpaim.Model.Mood;
-import com.apahayo.tubespabpaim.Model.Pertanyaan;
 
 import java.util.ArrayList;
 

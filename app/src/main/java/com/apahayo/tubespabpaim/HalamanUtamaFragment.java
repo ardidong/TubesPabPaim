@@ -1,6 +1,5 @@
 package com.apahayo.tubespabpaim;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -14,8 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.apahayo.tubespabpaim.Adapter.AktifitasAdapter;
 import com.apahayo.tubespabpaim.Model.Mood;
-import com.apahayo.tubespabpaim.Model.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.auth.FirebaseAuth;
