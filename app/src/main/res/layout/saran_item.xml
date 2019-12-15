@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/button_saran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textAlignment="center"
+        android:background="@drawable/btn_saran"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="@string/Relaksasi"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+</LinearLayout>

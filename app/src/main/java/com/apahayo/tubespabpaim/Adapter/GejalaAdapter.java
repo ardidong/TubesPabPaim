@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +18,15 @@ import java.util.ArrayList;
 public class GejalaAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<Gejala> gejalaList;
+    private CustomItemClickListener mListener;
+
+    public interface CustomItemClickListener {
+        void onChoiceClick(int position, boolean answer);
+    }
+
+    public void setCustomItemClickListener(CustomItemClickListener listener) {
+        mListener = listener;
+    }
 
     public GejalaAdapter(Context context, ArrayList<Gejala> gejalaList) {
         this.context = context;
@@ -28,13 +38,14 @@ public class GejalaAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.activity_pilih_gejala_list
                 , parent, false);
-        return new PertanyaanViewHolder(view);
+        GejalaAdapter.GejalaViewHolder gh = new GejalaAdapter.GejalaViewHolder(view,mListener);
+        return gh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Gejala currentGejala = gejalaList.get(position);
-        ((PertanyaanViewHolder)holder).bindTo(currentGejala);
+        ((GejalaViewHolder)holder).bindTo(currentGejala);
 
     }
 
@@ -43,14 +54,26 @@ public class GejalaAdapter extends RecyclerView.Adapter {
         return gejalaList.size();
     }
 
-    private class PertanyaanViewHolder extends RecyclerView.ViewHolder {
+    private class GejalaViewHolder extends RecyclerView.ViewHolder {
 
         private CheckBox gejalaCB;
 
 
-        public PertanyaanViewHolder(@NonNull View itemView) {
+        public GejalaViewHolder(@NonNull View itemView, final CustomItemClickListener listener) {
             super(itemView);
             gejalaCB = itemView.findViewById(R.id.checkbox_gejala);
+
+            gejalaCB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onChoiceClick(position,isChecked);
+                        }
+                    }
+                }
+            });
         }
 
         public void bindTo(Gejala mGejala){

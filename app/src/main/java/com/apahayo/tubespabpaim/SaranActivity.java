@@ -2,12 +2,16 @@ package com.apahayo.tubespabpaim;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.apahayo.tubespabpaim.Adapter.AktifitasAdapter;
+import com.apahayo.tubespabpaim.Adapter.SaranAdapter;
 import com.apahayo.tubespabpaim.Model.Mood;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -28,14 +32,61 @@ public class SaranActivity extends AppCompatActivity {
     private GoogleSignInAccount acct;
     private ArrayList<Mood> lists;
     private String uid;
+    private SaranAdapter saranAdapter;
     private DatabaseReference dbRef;
+    public ArrayList<String> hasilGejala;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saran);
-        //lists = new ArrayList<>();
-       // check();
+        lists = new ArrayList<>();
+        //hasilGejala = getIntent().getStringArrayListExtra(PilihGejalaActivity.HASIL_GEJALA);
+
+        RecyclerView mRecyclerView = findViewById(R.id.saran_RV);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        hasilGejala = new ArrayList<>();
+        saranAdapter = new SaranAdapter(this,hasilGejala);
+        mRecyclerView.setAdapter(saranAdapter);
+        mRecyclerView.setItemViewCacheSize(hasilGejala.size());
+
+        getSarans();
+
+        mRecyclerView.setItemViewCacheSize(hasilGejala.size());
+
+    }
+
+    public void getSarans(){
+        GoogleSignInAccount acct;
+        String uid;
+        acct = GoogleSignIn.getLastSignedInAccount(SaranActivity.this);
+
+        if (acct != null) {
+            uid = acct.getId();
+        } else {
+            uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        }
+
+        DatabaseReference aktifitasDB = FirebaseDatabase.getInstance().getReference().child("solusi");
+        aktifitasDB.child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    String saran = ds.getKey();
+                    hasilGejala.add(saran);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        saranAdapter.notifyDataSetChanged();
     }
 
     public void check(){
