@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Mentalist</string>
     <string name="mentalist">Mentalist</string>
-    <string name="detailDemikian">Lorem iptumnaksdnlansdkla lnlansdlansldasklndkasn adlkasndlnasdnlasnda alksdnlkad,samldknasld aldslkmamsdlkansdnaslknd nlaslkdmasdnlasnl klasdlkasndlknaslkkdnlasndkna lansdlansdjasld</string>
 
     <string name="title_activity_welcome">Home Screen</string>
     <string name="next">Apa tuh?</string>
@@ -25,7 +24,7 @@
     <string name="nav_kegiatan">kegiatan</string>
     <string name="nav_mood">mood</string>
     <string name="textDeskripsiLogo">Copyright by ApahayoCorp.</string>
-    <string name="text_judul">MENTALIST </string>
+    <string name="text_judul">MENTALIST</string>
 
     <string-array name="kegiatan">
         <item>nugas</item>

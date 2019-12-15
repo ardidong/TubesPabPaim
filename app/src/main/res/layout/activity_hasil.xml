@@ -5,44 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@drawable/background_color"
+    android:background="#ffffff"
     tools:context=".HasilActivity">
 
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:paddingTop="10dp"
-            android:gravity="center"
-            android:text="Kesehatan Mental Anda Ada Di Tingkat">
-        </TextView>
-        <TextView
-            android:id="@+id/indikasi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="NORMAL"
-            android:textStyle="bold"
-            android:textColor="@color/colorNormal"
-            android:layout_marginBottom="50dp"
-            android:gravity="center"
-            android:textSize="24sp"/>
-        <TextView
-            android:layout_width="150dp"
-            android:layout_gravity="center"
-            android:layout_height="150dp"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/ilustrasi"/>
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:textSize="20sp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
             android:text="Mengapa Demikian ?"
             android:textStyle="bold"/>
         <TextView
@@ -50,16 +31,16 @@
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:textSize="16sp"
-            android:layout_marginBottom="30dp"
-            android:text="@string/detailDemikian"
+            android:layout_marginBottom="40dp"
+            android:text="Kamu cenderung sedang memikirkan banyak hal. Ada kejadian atau kegiatan yang sedang ingin Kamu selesaikan, dan mungkin Kamu sedang ragu pada diri musendiri apakah kamu mampu mengatasinya atau tidak. "
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:textSize="20sp"
-            android:layout_marginBottom="15dp"
-            android:text="Cara Mempertahankannya"
+            android:layout_marginBottom="40dp"
+            android:text="Saran/Solusi"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="match_parent"
@@ -67,7 +48,8 @@
             android:paddingLeft="20dp"
             android:textSize="16sp"
             android:layout_marginBottom="30dp"
-            android:text="@string/detailDemikian"
+            android:text="1.Coba tuangkan pikiran-pikiran mu di dalam kertas. Tuliskan apa saja yang sedang ingin kamu lakukan.
+                          2.Cari waktu untuk “me time” atau pergi wisata ke tempat-tempat yang sejuk, seperti pegunungan."
             />
 
         <Button
@@ -75,13 +57,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="100dp"
             android:background="@drawable/buttonsolusi"
-
             android:fontFamily="@font/roboto_condensed_bold"
-            android:text="OK"
+            android:text="OKE"
             android:textColor="@android:color/white"
             android:textSize="24sp" />
 
     </LinearLayout>
-
+    </FrameLayout>
 </ScrollView>

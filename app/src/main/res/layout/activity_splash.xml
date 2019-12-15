@@ -13,35 +13,31 @@
     android:background="@drawable/background_color"
     tools:context=".SplashActivity">
 
+
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginBottom="289dp"
         android:contentDescription="Deskripsi Logo"
         android:scaleType="fitXY"
-        android:src="@drawable/icon_launcher"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""/>
+        android:src="@drawable/icon_launcher" />
 
     <TextView
         android:id="@+id/text_judul"
-        android:layout_width="133dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="false"
-        android:layout_marginLeft="142dp"
-        android:layout_marginTop="440dp"
-        android:layout_marginRight="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="460dp"
         android:layout_marginBottom="400dp"
-        android:fontFamily="@font/roboto_condensed_bold"
-        android:text="@string/text_judul"
+        android:fontFamily="@font/amaranth"
+        android:text="MENTALIST"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -58,7 +54,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="@font/roboto_condensed_bold"
+        android:fontFamily="@font/amaranth"
         android:text="@string/textDeskripsiLogo"
         android:textColor="@android:color/white"
         android:textStyle="bold" />

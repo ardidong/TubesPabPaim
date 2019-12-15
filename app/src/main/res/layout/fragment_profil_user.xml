@@ -67,20 +67,19 @@
 
                 <Button
                     android:id="@+id/logoutBtn"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginRight="100dp"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="80dp"
-                    android:background="@drawable/button_detail_kegiatan"
+                    android:background="@drawable/buttonsolusi"
                     android:text="LOGOUT" />
 
             </LinearLayout>
 
-
         </RelativeLayout>
 
     </ScrollView>
-
-
 
 </FrameLayout>

@@ -19,7 +19,6 @@ public class HasilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_hasil);
 
         btnOK = findViewById(R.id.btn_ok);
-        tvIndikasi = findViewById(R.id.indikasi);
 
         Intent intent = getIntent();
         String indikasi = intent.getStringExtra("indikasi");
