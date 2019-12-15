@@ -2,26 +2,26 @@
 <resources>
 
     <string-array name="gejala">
-        <item name ="1">sering sakit kepala</item>
-        <item name ="2">kehilangan nafsu makan</item>
-        <item name ="3">tidur tidak lelap</item>
-        <item name ="4">mudah takut</item>
-        <item name ="5">cemas, tegang dan khawatir</item>
-        <item name ="6">tangan gemetar</item>
-        <item name ="7">gangguan pencernaan</item>
-        <item name ="8">sulit berpikir jernih</item>
-        <item name ="9">tidak bahagia</item>
-        <item name ="10">sering menangis</item>
+        <item name ="1">Sering sakit kepala</item>
+        <item name ="2">Kehilangan nafsu makan</item>
+        <item name ="3">Tidur tidak lelap</item>
+        <item name ="4">Mudah takut</item>
+        <item name ="5">Cemas, tegang dan khawatir</item>
+        <item name ="6">Tangan gemetar</item>
+        <item name ="7">Gangguan pencernaan</item>
+        <item name ="8">Sulit berpikir jernih</item>
+        <item name ="9">Tidak bahagia</item>
+        <item name ="10">Sering menangis</item>
         <item name ="11">Tidak menikmati hidup</item>
-        <item name ="12">sulit mengambil keputusan</item>
-        <item name ="13">kegiatan terbengkalai</item>
+        <item name ="12">Sulit mengambil keputusan</item>
+        <item name ="13">Kegiatan terbengkalai</item>
         <item name ="14">Merasa tidak berguna</item>
-        <item name ="15">kehilangan minat terhadap banyak hal</item>
-        <item name ="16">merasa tidak berharga</item>
-        <item name ="17">ingin mengakhiri hidup</item>
-        <item name ="18">lelah sepanjang waktu</item>
+        <item name ="15">Kehilangan minat terhadap banyak hal</item>
+        <item name ="16">Merasa tidak berharga</item>
+        <item name ="17">Ingin mengakhiri hidup</item>
+        <item name ="18">Lelah sepanjang waktu</item>
         <item name ="19">Perut tidak enak</item>
-        <item name ="20">mudah lelah</item>
+        <item name ="20">Mudah lelah</item>
 
     </string-array>
 

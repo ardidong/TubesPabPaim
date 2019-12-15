@@ -59,7 +59,6 @@ public class SaranAdapter extends RecyclerView.Adapter {
                 Intent intent = new Intent(activity, HasilActivity.class);
                 intent.putExtra("KODE",currentSaran);
                 activity.startActivity(intent);
-                activity.finish();
             }
         });
 

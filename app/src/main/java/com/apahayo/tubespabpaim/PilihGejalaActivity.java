@@ -146,6 +146,7 @@ public class PilihGejalaActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SaranActivity.class);
         intent.putStringArrayListExtra(HASIL_GEJALA,hasilGejala);
         startActivity(intent);
+        finish();
 
 
         Log.d("___DEBUGHasilDiagnosis",hasil);

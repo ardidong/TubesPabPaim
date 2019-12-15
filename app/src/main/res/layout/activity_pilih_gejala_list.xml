@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/aktifitas_card"
@@ -22,7 +20,7 @@
         android:layout_width="match_parent"
         android:id="@+id/checkbox_gejala"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 
         android:text="Gejalamuu"/>

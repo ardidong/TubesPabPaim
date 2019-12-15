@@ -55,6 +55,7 @@
             android:screenOrientation="portrait" />
 
         <receiver android:name=".ReceiverSenang"/>
+        <receiver android:name=".ReceiverSedih"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

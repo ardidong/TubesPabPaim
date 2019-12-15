@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,6 +37,7 @@ public class SaranActivity extends AppCompatActivity {
 
     private GoogleSignInAccount acct;
     private ArrayList<Mood> lists;
+
     private String uid;
     private Button kembaliBtn;
     private Button saranBtn;
@@ -51,7 +55,8 @@ public class SaranActivity extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.saran_RV);
 
-        kembaliBtn = findViewById(R.id.kembali_btn);
+
+        kembaliBtn = findViewById(R.id.btn_kembali);
         kembaliBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,5 +160,7 @@ public class SaranActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+
 
 }
