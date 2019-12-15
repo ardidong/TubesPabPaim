@@ -69,15 +69,9 @@ public class DetailMoodUser extends AppCompatActivity {
                 emot.setImageResource(R.drawable.ic_mood_sedihsekali);
                 break;
             case 2:
-                emot.setImageResource(R.drawable.ic_mood_sedih);
-                break;
-            case 3:
                 emot.setImageResource(R.drawable.ic_mood_netral);
                 break;
-            case 4:
-                emot.setImageResource(R.drawable.ic_mood_senang);
-                break;
-            case 5:
+            case 3:
                 emot.setImageResource(R.drawable.ic_mood_senangsekali);
                 break;
         }

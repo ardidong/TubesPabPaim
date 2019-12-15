@@ -69,17 +69,11 @@ public class NambahCeritaFragment extends Fragment {
                     case R.id.sedih1:
                         value = 1;
                         break;
-                    case R.id.sedih2:
+                    case R.id.netral1:
                         value = 2;
                         break;
-                    case R.id.netral1:
-                        value = 3;
-                        break;
-                    case R.id.senang1:
-                        value = 4;
-                        break;
                     case R.id.senang2:
-                        value = 5;
+                        value = 3 ;
                         break;
                 }
             }
@@ -125,10 +119,10 @@ public class NambahCeritaFragment extends Fragment {
 
             Mood mood = new Mood(timestamp.toString(), nama, value, detail);
 
-            if (value == 4 || value == 5 || value == 3) {
+            if ( value == 3) {
                 intent = new Intent(getContext(), TambahQuoteSaranActivity.class);
             } else {
-                intent = new Intent(getContext(), SaranActivity.class);
+                intent = new Intent(getContext(), PilihGejalaActivity.class);
             }
             intent.putExtra("data", mood);
             startActivity(intent);

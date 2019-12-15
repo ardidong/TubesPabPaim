@@ -32,6 +32,7 @@ public class PilihGejalaActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(PilihGejalaActivity.this);
         mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setItemViewCacheSize(listGejala.size());
 
         initialize();
 
@@ -41,9 +42,9 @@ public class PilihGejalaActivity extends AppCompatActivity {
         String[] gejala = getResources().getStringArray(R.array.gejala);
         listGejala.clear();
 
-        for (int i = 0; i < gejala.length; i++) {
+        for (String s : gejala) {
             Gejala mGejala = new Gejala();
-            mGejala.setPertanyaan(gejala[i]);
+            mGejala.setPertanyaan(s);
             listGejala.add(mGejala);
         }
 

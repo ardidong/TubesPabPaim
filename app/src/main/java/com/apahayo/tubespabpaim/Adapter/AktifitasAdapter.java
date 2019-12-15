@@ -97,16 +97,10 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
                     cardView.setCardBackgroundColor(Color.parseColor("#89ADEC"));
                     break;
                 case 2:
-                    cardView.setCardBackgroundColor(Color.parseColor("#65A4DA"));
-                    break;
-                case 3:
                     cardView.setCardBackgroundColor(Color.parseColor("#777777"));
                     break;
-                case 4:
+                case 3:
                     cardView.setCardBackgroundColor(Color.parseColor("#F38240"));
-                    break;
-                case 5:
-                    cardView.setCardBackgroundColor(Color.parseColor("#FED34E"));
                     break;
             }
 
@@ -115,15 +109,9 @@ public class AktifitasAdapter extends RecyclerView.Adapter {
                     moodImage.setImageResource(R.drawable.ic_mood_sedihsekali);
                     break;
                 case 2:
-                    moodImage.setImageResource(R.drawable.ic_mood_sedih);
-                    break;
-                case 3:
                     moodImage.setImageResource(R.drawable.ic_mood_netral);
                     break;
-                case 4:
-                    moodImage.setImageResource(R.drawable.ic_mood_senang);
-                    break;
-                case 5:
+                case 3:
                     moodImage.setImageResource(R.drawable.ic_mood_senangsekali);
                     break;
             }

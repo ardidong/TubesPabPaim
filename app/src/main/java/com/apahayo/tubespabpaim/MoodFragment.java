@@ -75,17 +75,11 @@ public class MoodFragment extends Fragment {
                             case R.id.sedih1:
                                 value = 1;
                                 break;
-                            case R.id.sedih2:
+                            case R.id.netral1:
                                 value = 2;
                                 break;
-                            case R.id.netral1:
-                                value = 3;
-                                break;
-                            case R.id.senang1:
-                                value = 4;
-                                break;
                             case R.id.senang2:
-                                value = 5;
+                                value = 3;
                                 break;
                         }
 
