@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,6 +36,7 @@ public class SaranActivity extends AppCompatActivity {
     private SaranAdapter saranAdapter;
     private DatabaseReference dbRef;
     public ArrayList<String> hasilGejala;
+    RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +45,17 @@ public class SaranActivity extends AppCompatActivity {
         lists = new ArrayList<>();
         //hasilGejala = getIntent().getStringArrayListExtra(PilihGejalaActivity.HASIL_GEJALA);
 
-        RecyclerView mRecyclerView = findViewById(R.id.saran_RV);
+        mRecyclerView = findViewById(R.id.saran_RV);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
 
         hasilGejala = new ArrayList<>();
-        saranAdapter = new SaranAdapter(this,hasilGejala);
-        mRecyclerView.setAdapter(saranAdapter);
-        mRecyclerView.setItemViewCacheSize(hasilGejala.size());
+
 
         getSarans();
 
-        mRecyclerView.setItemViewCacheSize(hasilGejala.size());
+        //mRecyclerView.setItemViewCacheSize(hasilGejala.size());
 
     }
 
@@ -74,10 +74,16 @@ public class SaranActivity extends AppCompatActivity {
         aktifitasDB.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<String> sarans = new ArrayList<>();
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     String saran = ds.getKey();
-                    hasilGejala.add(saran);
+                    sarans.add(saran);
                 }
+
+                saranAdapter = new SaranAdapter(SaranActivity.this,sarans);
+                mRecyclerView.setAdapter(saranAdapter);
+                mRecyclerView.setItemViewCacheSize(sarans.size());
+
             }
 
             @Override
@@ -86,7 +92,7 @@ public class SaranActivity extends AppCompatActivity {
             }
         });
 
-        saranAdapter.notifyDataSetChanged();
+       // saranAdapter.notifyDataSetChanged();
     }
 
     public void check(){

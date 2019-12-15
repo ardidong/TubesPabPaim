@@ -18,7 +18,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.apahayo.tubespabpaim.DetailMoodUser;
-import com.apahayo.tubespabpaim.HasilActivity;
 import com.apahayo.tubespabpaim.Model.Aktifitas;
 import com.apahayo.tubespabpaim.Model.Mood;
 import com.apahayo.tubespabpaim.R;
@@ -32,56 +31,49 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-public class SaranAdapter extends RecyclerView.Adapter {
-    private ArrayList<String> saranList;
+public class SolusiAdapter extends RecyclerView.Adapter {
+    private ArrayList<String> solusiList;
     private final Activity activity;
 
-    public SaranAdapter(Activity activity, ArrayList<String> saranList) {
-        this.saranList = saranList;
+    public SolusiAdapter(Activity activity, ArrayList<String> solusiList) {
+        this.solusiList = solusiList;
         this.activity = activity;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(activity).inflate(R.layout.saran_item
+        View view = LayoutInflater.from(activity).inflate(R.layout.solusi_item
                 , parent, false);
-        return new SaranViewHolder(view);
+        return new SolusiViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        final String currentSaran= saranList.get(position);
-        ((SaranViewHolder) holder).bindView(currentSaran);
-        ((SaranViewHolder)holder).saranButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(activity, HasilActivity.class);
-                intent.putExtra("KODE",currentSaran);
-                activity.startActivity(intent);
-                activity.finish();
-            }
-        });
-
+        final String currentSolusi= solusiList.get(position);
+        ((SolusiViewHolder) holder).bindView(currentSolusi);
     }
 
     @Override
     public int getItemCount() {
-        return saranList.size();
+        return solusiList.size();
     }
 
-    private class SaranViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private  TextView saranButton;
+    private class SolusiViewHolder extends RecyclerView.ViewHolder  {
+        private TextView solusiTV;
 
-        public SaranViewHolder(View itemView) {
+        public SolusiViewHolder(View itemView) {
             super(itemView);
-            saranButton = itemView.findViewById(R.id.button_saran);
-        }
-
-        public void bindView(String currentSaran) {
-            saranButton.setText(currentSaran);
+            solusiTV = itemView.findViewById(R.id.solusi_tv);
 
         }
+
+        public void bindView(String currentSolusi) {
+            solusiTV.setText(currentSolusi);
+
+        }
+
+
 
         public void onClick(View view) {
 

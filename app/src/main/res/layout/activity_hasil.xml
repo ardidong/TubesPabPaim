@@ -1,59 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     android:background="#ffffff"
+    android:fillViewport="true"
     tools:context=".HasilActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/penjalasan_solusi_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="40dp"
+            android:paddingLeft="20dp"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:textSize="20sp"
-            android:layout_marginTop="40dp"
             android:layout_marginBottom="40dp"
-            android:text="Mengapa Demikian ?"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:paddingLeft="20dp"
-            android:textSize="16sp"
-            android:layout_marginBottom="40dp"
-            android:text="Kamu cenderung sedang memikirkan banyak hal. Ada kejadian atau kegiatan yang sedang ingin Kamu selesaikan, dan mungkin Kamu sedang ragu pada diri musendiri apakah kamu mampu mengatasinya atau tidak. "
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:textSize="20sp"
-            android:layout_marginBottom="40dp"
             android:text="Saran/Solusi"
-            android:textStyle="bold"/>
-        <TextView
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/solusi_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:textSize="16sp"
-            android:layout_marginBottom="30dp"
-            android:text="1.Coba tuangkan pikiran-pikiran mu di dalam kertas. Tuliskan apa saja yang sedang ingin kamu lakukan.
-                          2.Cari waktu untuk “me time” atau pergi wisata ke tempat-tempat yang sejuk, seperti pegunungan."
-            />
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
         <Button
-            android:id="@+id/btn_ok"
+            android:id="@+id/btn_ok_saran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -65,5 +51,5 @@
             android:textSize="24sp" />
 
     </LinearLayout>
-    </FrameLayout>
+
 </ScrollView>

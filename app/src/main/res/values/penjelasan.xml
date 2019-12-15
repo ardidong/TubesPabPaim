@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="penjelasan_C01">Kamu cenderung sedang memikirkan banyak hal. Ada kejadian atau kegiatan yang sedang ingin Kamu selesaikan, dan mungkin Kamu sedang ragu pada diri mu sendiri apakah kamu mampu mengatasinya atau tidak. </string>
+    <string name="penjelasan_C02">Kamu sedang mencemaskan sesuatu yang belum terjadi dan kamu khawatir tidak mampu menyelesainnya. Kamu cenderung merasa waktu berjalan begitu cepat dan kamu merasa tertekan akan hal itu. </string>
+    <string name="penjelasan_C03">Kemungkinan kamu sedang mengalami ketidakpercayaan diri. Kamu cenderung fokus memandang sesi negatif dari dirimu. Selain itu, kamu terlalu sering menilai orang lain atau lingkungan di sekitarmu sebagai ancaman bagi dirimu</string>
+    <string name="penjelasan_C04">Kamu sedang merasa sangat tertekan dan kamu sulit merasakan hal-hal yang menyenangkan. Kamu cenderung sedang kecewa dengan dirimu sendiri atau dengan keadaanmu</string>
+    <string name="penjelasan_C05">Kamu sedang mengalami kelelahan psikis. Banyak hal yang menurutmu sangat berat dan membuatmu tidak nyaman, sehingga kamu seolah-olah tidak menjadi dirimu sendiri, Kamu cenderung bosan terhadap apa yang kamu lakukan</string>
+    <string name="penjelasan_C06">Kamu cenderung sedang mengalami depresi</string>
+    <string name="penjelasan_C07">Kemampuan berkonsentrasi dan fokusmu sedang terganggu. Kemungkinan ada kejadian atau kegagalan yang sedang kamu sesali. Kamu butuh meningkatkan rasa percaya pada dirimu sendiri.</string>
+</resources>
