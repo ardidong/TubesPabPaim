@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="solusi_C01">
+        <item>Coba tuangkan pikiran-pikiran mu di dalam kertas. Tuliskan apa saja yang sedang ingin kamu lakukan</item>
+        <item>Cari waktu untuk “me time” atau pergi wisata ke tempat-tempat yang sejuk, seperti pegunungan</item>
+    </string-array>
+
+    <string-array name="solusi_C02">
+        <item>Cobalah ubah pola tidur mu, jangan begadang, jam 10 malam kamu harus sudah tidur</item>
+        <item>Ubah pola berpikirmu, bahwa ketika kamu makan kamu sedang memberikan hak kepada tubuhmu sendiri. Makan adalah memberi nutrisi pada tubuhmu, bukan hanya sekedar membuatmu kenyang</item>
+        <item>Mulailah mengubah pola makan yang teratur</item>
+    </string-array>
+
+    <string-array name="solusi_C03">
+        <item>Cobalah menggambar dirimu sendiri, dan tuliskan apa saja kelebihanmu dan apa saja kekurangan yang kamu miliki. Terimalah kelebihan dan kekuranganmu, bahwa keduanya adalah bagian dari dirimu dan setiap orang diciptakan dengan kelebihan dan kekurangannya masing-masing</item>
+        <item>Setiap pagi dan akan tidur atau setiap kamu merasa tidak nyaman lakukanlah pernafasan dalam. Tarik nafas yang panjang kemudian tahan sebentar dan keluarkan nafas melalui mulut secara perlahan-lahan. Lakukan pernafasan tersebut sambil memejamkan mata dan katakan pada dirimu sendiri bahwa semua akan baik-baik saja dan kamu mampu melaluinya</item>
+    </string-array>
+
+    <string-array name="solusi_C04">
+        <item>Coba ceritakan apa yang kamu rasakan kepada orang yang kamu percaya</item>
+        <item>Lakukan olahraga secara rutin terutama di pagi hari</item>
+        <item>Konsultasikan keadaanmu kepada Psikolog</item>
+    </string-array>
+
+    <string-array name="solusi_C05">
+        <item>Jika kamu sering begadang atau terlalu banyak tidur, coba ubah pola tidurmu (tidur 7 sampai 8 jam sehari)</item>
+        <item>Lakukan olahraga teratur setiap pagi terutama</item>
+        <item>Tuliskan kegiatan-kegiatan yang sedang kamu lakukan dan apa yang bisa kamu maknai dari kegiatan itu</item>
+        <item>Berikan perubahan-perubahan kecil pada aktivitasmu, sehingga kamu tidak merasa hanya sekedar menjalankan rutinitas</item>
+        <item>Konsultasikan keadaanmu kepada Psikolog</item>
+    </string-array>
+
+    <string-array name="solusi_C06">
+        <item>Segera konsultasikan keadaan mu kepada Psikolog</item>
+    </string-array>
+
+    <string-array name="solusi_C07">
+        <item>Cobalah lakukan Self-talk positif setiap bangun tidur dan akan tidur atau ketika kamu merasa sedang mengalami tekanan</item>
+        <item>Cobalah memulai obrolan atau berkunjung ke orangtuamu, saudaramu atau temanmu.</item>
+    </string-array>
+
+</resources>

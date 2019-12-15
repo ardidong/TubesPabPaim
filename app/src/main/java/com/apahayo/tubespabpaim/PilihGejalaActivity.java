@@ -147,6 +147,7 @@ public class PilihGejalaActivity extends AppCompatActivity {
         intent.putStringArrayListExtra(HASIL_GEJALA,hasilGejala);
         startActivity(intent);
 
+
         Log.d("___DEBUGHasilDiagnosis",hasil);
     }
 
@@ -162,6 +163,7 @@ public class PilihGejalaActivity extends AppCompatActivity {
         }
 
         DatabaseReference aktifitasDB = FirebaseDatabase.getInstance().getReference().child("solusi");
+        aktifitasDB.child(uid).removeValue();
         for(String saran : hasilGejala){
             aktifitasDB.child(uid).child(saran).setValue(true);
         }
