@@ -49,8 +49,8 @@ public class HasilActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY,1);
-                calendar.set(Calendar.MINUTE,2);
+                calendar.set(Calendar.HOUR_OF_DAY,7);
+                calendar.set(Calendar.MINUTE,0);
                 calendar.set(Calendar.SECOND,0);
 
 
