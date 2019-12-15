@@ -21,7 +21,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.apahayo.tubespabpaim.Model.Mood;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -38,7 +37,6 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
 
     private TextView kataTV;
     private EditText quoteET;
-    private static final String PRIMARY_CHANNEL_ID = "primary_notification_channel";
     private GoogleSignInAccount acct;
     private NotificationManager mNotifyManager;
     private PendingIntent contentIntent;
@@ -60,7 +58,7 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
         mood = (Mood) getIntent().getSerializableExtra("data");
         createNotificationChannel();
 
-        if (mood.getValue() == 4) {
+        if (mood.getValue() == 3){
             kataTV.setText(getResources().getString(R.string.kataSenang));
         } else if (mood.getValue() == 5) {
             kataTV.setText(getResources().getString(R.string.kataSenangSekali));
@@ -75,12 +73,12 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
                         quoteET.getWindowToken(), 0);
 
                 Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY,7);
-                calendar.set(Calendar.MINUTE,0);
+                calendar.set(Calendar.HOUR_OF_DAY,16);
+                calendar.set(Calendar.MINUTE,9);
                 calendar.set(Calendar.SECOND,0);
 
 
-                Intent intent = new Intent(TambahQuoteSaranActivity.this,Notification_receiver.class);
+                Intent intent = new Intent(TambahQuoteSaranActivity.this, ReceiverSenang.class);
 
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
                         TambahQuoteSaranActivity.this,0,intent,0);
@@ -159,13 +157,6 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
 
         myAlertBuilder.show();
     }
-
-    public void sendNotification() {
-
-        NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
-        mNotifyManager.notify(NOTIFICATION_ID, notifyBuilder.build());
-    }
-
     public void createNotificationChannel() {
         mNotifyManager = (NotificationManager)
                 getSystemService(NOTIFICATION_SERVICE);
@@ -183,8 +174,8 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
     }
 
     private NotificationCompat.Builder getNotificationBuilder() {
-        NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID);
-        if (mood.getValue() == 4) {
+        NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this, "channel1");
+        if (mood.getValue() == 3) {
 
             notifyBuilder.setContentTitle("Wah sepertinya kamu akhir akhir ini senang sekali ya, bagaimana dengan hari ini?")
                     .setSmallIcon(R.drawable.icon_launcher)

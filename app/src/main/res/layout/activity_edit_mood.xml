@@ -89,19 +89,11 @@
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/sedihh1"
-                        android:layout_marginRight="8dp"
+                        android:id="@+id/sedihh2"
+                        android:layout_marginEnd="8dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_sedih_sekali"
-                        android:button="@null" />
-
-                    <RadioButton
-                        android:id="@+id/sedihh2"
-                        android:layout_marginRight="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/btn_sedih"
                         android:button="@null" />
 
                     <RadioButton
@@ -114,14 +106,6 @@
 
                     <RadioButton
                         android:id="@+id/senangg1"
-                        android:layout_marginRight="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/btn_senang"
-                        android:button="@null" />
-
-                    <RadioButton
-                        android:id="@+id/senangg2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/btn_senang_sekali"

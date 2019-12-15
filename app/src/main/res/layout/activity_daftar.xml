@@ -1,51 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/daftarLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     tools:context=".DaftarActivity">
 
 
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:background="@drawable/ic_pic_ombak1"
-        />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="84dp"
+            android:background="@drawable/circle_tosca" />
 
-
-
-
-
-    <TextView
-        android:id="@+id/namaTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="110dp"
-        android:layout_marginLeft="110dp"
-        android:layout_marginTop="140dp"
-        android:textStyle="bold"
-        android:text="Daftarkan diri Anda :"
-        android:textSize="20sp" />
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="120dp"
+            android:layout_height="129dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="114dp"
+            android:contentDescription="Deskripsi Logo"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_launcher" />
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/namaET"
-        android:layout_width="395dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="345dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:ems="10"
         android:hint="Nama"
         android:inputType="textPersonName" />
@@ -54,13 +48,8 @@
         android:id="@+id/emailET"
         android:layout_width="397dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="412dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress" />
@@ -69,41 +58,39 @@
         android:id="@+id/passwordET"
         android:layout_width="393dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="476dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword" />
 
 
-
-    <Button
-        android:id="@+id/daftarBtn"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="228dp"
-        android:layout_marginLeft="228dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/buttonsolusi"
-        android:text="Daftar" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="120dp"
+    android:orientation="horizontal">
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/googleBtn"
         android:layout_width="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="225dp"
-        android:layout_marginRight="225dp"
+        android:layout_marginStart="50dp"
+        android:layout_gravity="center"
+
         android:layout_marginBottom="21dp" />
-</RelativeLayout>
+
+    <Button
+        android:id="@+id/daftarBtn"
+        android:layout_width="145dp"
+        android:layout_marginStart="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/buttonsolusi"
+        android:text="Daftar" />
+
+
+</LinearLayout>
+
+</LinearLayout>

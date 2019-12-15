@@ -54,7 +54,7 @@
             android:name=".HalamanUtama"
             android:screenOrientation="portrait" />
 
-        <receiver android:name=".Notification_receiver"/>
+        <receiver android:name=".ReceiverSenang"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

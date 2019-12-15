@@ -33,7 +33,7 @@ public class EditMoodActivity extends AppCompatActivity {
     private GoogleSignInAccount acct;
     private AktifitasAdapter aktifitasAdapter;
     private DatabaseReference database;
-    private RadioButton sedihsekali,sedih,netral,senang,senangsekali;
+    private RadioButton sedih,netral,senang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +47,9 @@ public class EditMoodActivity extends AppCompatActivity {
         Kegiatan = findViewById(R.id.detailkegiatanET2);
         tanggal = findViewById(R.id.tanggalTV);
         emot = findViewById(R.id.emotGroup3);
-        sedihsekali = findViewById(R.id.sedihh1);
         sedih = findViewById(R.id.sedihh2);
         netral = findViewById(R.id.netrall1);
         senang = findViewById(R.id.senangg1);
-        senangsekali = findViewById(R.id.senangg2);
         edit = findViewById(R.id.editBtn);
         acct = GoogleSignIn.getLastSignedInAccount(EditMoodActivity.this);
         database = FirebaseDatabase.getInstance().getReference();
@@ -62,27 +60,21 @@ public class EditMoodActivity extends AppCompatActivity {
         mood = (Mood) getIntent().getSerializableExtra("MOOD_DATA");
 
         value = mood.getValue();
-
         judul.setText(mood.getJudul());
         Kegiatan.setText(mood.getDeskripsi());
         tanggal.setText(mood.getWaktu());
 
         switch (value) {
             case 1:
-                sedihsekali.setChecked(true);
-                break;
-            case 2:
                 sedih.setChecked(true);
                 break;
-            case 3:
+            case 2:
                 netral.setChecked(true);
                 break;
-            case 4:
+            case 3:
                 senang.setChecked(true);
                 break;
-            case 5:
-                senangsekali.setChecked(true);
-                break;
+
 
 
 
@@ -93,20 +85,14 @@ public class EditMoodActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
                 switch (id) {
-                    case R.id.sedihh1:
+                    case R.id.sedihh2:
                         value = 1;
                         break;
-                    case R.id.sedihh2:
+                    case R.id.netrall1:
                         value = 2;
                         break;
-                    case R.id.netrall1:
-                        value = 3;
-                        break;
                     case R.id.senangg1:
-                        value = 4;
-                        break;
-                    case R.id.senangg2:
-                        value = 5;
+                        value = 3;
                         break;
                 }
             }
@@ -145,11 +131,6 @@ public class EditMoodActivity extends AppCompatActivity {
         if (acct != null) {
 
             String personId = acct.getId();
-
-            String tanggal2 = tanggal.getText().toString();
-            String judul2 = judul.getText().toString();
-            String kegiatan2 = Kegiatan.getText().toString();
-
             mood.setJudul(judul.getText().toString());
             mood.setDeskripsi(Kegiatan.getText().toString());
             mood.setValue(value);

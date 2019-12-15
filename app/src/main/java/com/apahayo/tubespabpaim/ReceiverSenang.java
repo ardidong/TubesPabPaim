@@ -10,7 +10,7 @@ import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-public class Notification_receiver extends BroadcastReceiver {
+public class ReceiverSenang extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -20,13 +20,14 @@ public class Notification_receiver extends BroadcastReceiver {
         repeat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context,0,
-                repeat,0);
-
+                repeat,PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context,"channel1")
-                .setContentTitle("Wah sepertinya kamu akhir akhir ini senang sekali ya, bagaimana dengan hari ini?")
+                .setContentTitle("Wah sepertinya kamu kemarin senang ya")
+                .setContentText("Bagaimana dengan hari ini?")
                 .setSmallIcon(R.drawable.icon_launcher)
                 .setContentIntent(pendingIntent)
+                .addAction(R.drawable.icon_launcher,"Belum",pendingIntent)
                 .setAutoCancel(true)
                 ;
 

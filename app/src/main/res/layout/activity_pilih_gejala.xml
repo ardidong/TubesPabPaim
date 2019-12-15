@@ -13,8 +13,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="25dp"
-        android:text="Isi gejalamu disini.."
-        android:textSize="24sp" />
+        android:text="Mungkin diantara ini ada yang kamu rasakan?"
+        android:textSize="18sp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/buttonsolusi"
-        android:text="KUMPUL"
+        android:text="ISI"
         android:textSize="20sp"
         android:fontFamily="@font/amaranth"
         android:textColor="@android:color/white"

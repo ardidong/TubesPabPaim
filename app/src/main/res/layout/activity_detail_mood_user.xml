@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
-            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
             android:text="Pada waktu ini kamu merasa :"/>
 
         <ImageView
@@ -96,7 +96,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <Button
             android:layout_width="150dp"
             android:layout_height="40dp"
@@ -107,6 +108,7 @@
             android:layout_marginEnd="20dp"
             android:gravity="center"
             android:text="HAPUS"
+            android:textColor="@color/colorWhite"
             android:background="@drawable/button_hapus"
             android:layout_gravity="center"
             />
@@ -118,7 +120,8 @@
             android:layout_marginBottom="20dp"
             android:text="edit"
             android:gravity="center"
-            android:background="@drawable/button_hapus"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_edit"
             android:layout_gravity="center"
             />
         </LinearLayout>
