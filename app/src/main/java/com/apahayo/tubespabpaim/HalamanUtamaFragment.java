@@ -1,5 +1,6 @@
 package com.apahayo.tubespabpaim;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -11,9 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.apahayo.tubespabpaim.Adapter.AktifitasAdapter;
+import com.apahayo.tubespabpaim.Adapter.SaranAdapter;
 import com.apahayo.tubespabpaim.Model.Mood;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -34,6 +37,7 @@ public class HalamanUtamaFragment extends Fragment {
     private GoogleSignInAccount acct;
     private AktifitasAdapter aktifitasAdapter;
     private DatabaseReference database;
+    private Button saranBtn;
     private RecyclerView recyclerView;
     private TextView name;
 
@@ -51,7 +55,17 @@ public class HalamanUtamaFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_halaman_utama, container, false);
         name = view.findViewById(R.id.namaUserTV);
+        saranBtn = view.findViewById(R.id.btn_saran_menujur_serius);
         database = FirebaseDatabase.getInstance().getReference();
+
+        getSarans();
+        saranBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),SaranActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -166,6 +180,33 @@ public class HalamanUtamaFragment extends Fragment {
 
 
 
+    }
+
+    public void getSarans(){
+
+        final String uid;
+
+        if (acct != null) {
+            uid = acct.getId();
+        } else {
+            uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        }
+
+        DatabaseReference aktifitasDB = FirebaseDatabase.getInstance().getReference();
+        aktifitasDB.child("solusi").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChild(uid)){
+                    saranBtn.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        // saranAdapter.notifyDataSetChanged();
     }
 
 

@@ -23,7 +23,7 @@ public class HasilActivity extends AppCompatActivity {
     private SolusiAdapter sAdapter;
     private ArrayList<String> listSolusi;
     private TextView penjelasan;
-    private Button saranOK;
+    private Button saranOK,saranBtn;
 
 
     @Override

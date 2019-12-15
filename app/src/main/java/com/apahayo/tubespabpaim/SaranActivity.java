@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.apahayo.tubespabpaim.Adapter.AktifitasAdapter;
 import com.apahayo.tubespabpaim.Adapter.SaranAdapter;
@@ -33,6 +35,8 @@ public class SaranActivity extends AppCompatActivity {
     private GoogleSignInAccount acct;
     private ArrayList<Mood> lists;
     private String uid;
+    private Button kembaliBtn;
+    private Button saranBtn;
     private SaranAdapter saranAdapter;
     private DatabaseReference dbRef;
     public ArrayList<String> hasilGejala;
@@ -46,6 +50,15 @@ public class SaranActivity extends AppCompatActivity {
         //hasilGejala = getIntent().getStringArrayListExtra(PilihGejalaActivity.HASIL_GEJALA);
 
         mRecyclerView = findViewById(R.id.saran_RV);
+
+        kembaliBtn = findViewById(R.id.kembali_btn);
+        kembaliBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SaranActivity.this,NavBotActivity.class);
+                startActivity(intent);
+            }
+        });
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
