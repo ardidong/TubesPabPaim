@@ -44,7 +44,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
-                android:textColor="@android:color/darker_gray"
                 android:text="Bagaimana kabarmu hari ini? "/>
             </LinearLayout>
 
@@ -73,6 +72,27 @@
                 android:textSize="24dp"
                 android:layout_marginBottom="30dp"/>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:id="@+id/kata_pertama"
+                        android:layout_marginStart="50dp"
+                        android:background="@drawable/btn_solusi"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Ayo ceritakan kegiatanmu, di bagian Cerita !!"
+                        android:textAlignment="center"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -80,6 +100,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/timelineKegiatan">
             </androidx.recyclerview.widget.RecyclerView>
+            </RelativeLayout>
 
         </LinearLayout>
 

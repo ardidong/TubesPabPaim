@@ -199,7 +199,7 @@ public class DaftarActivity extends AppCompatActivity {
 
                                 database = FirebaseDatabase.getInstance().getReference().child("users");
                                 database.child(uid2).push().setValue(user2);
-                                Intent intent = new Intent(DaftarActivity.this,NavBotActivity.class);
+                                Intent intent = new Intent(DaftarActivity.this,WelcomeActivity.class);
                                 startActivity(intent);
 
 

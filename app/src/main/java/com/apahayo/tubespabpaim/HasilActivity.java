@@ -49,7 +49,7 @@ public class HasilActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY,7);
+                calendar.set(Calendar.HOUR_OF_DAY,8);
                 calendar.set(Calendar.MINUTE,0);
                 calendar.set(Calendar.SECOND,0);
 
@@ -92,37 +92,37 @@ public class HasilActivity extends AppCompatActivity {
 
         switch (kode) {
             case "C01":
-                gambarsolusi.setImageResource(R.drawable.ragupadadirisendiri);
+                gambarsolusi.setImageResource(R.drawable.menulis);
                 penjelasan.setText(getResources().getString(R.string.penjelasan_C01));
                 solusiList = getResources().getStringArray(R.array.solusi_C01);
                 break;
             case "C02":
-                gambarsolusi.setImageResource(R.drawable.mencemaskanyangbelumterjadi);
+                gambarsolusi.setImageResource(R.drawable.tidur);
                 penjelasan.setText(getResources().getString(R.string.penjelasan_C02));
                 solusiList = getResources().getStringArray(R.array.solusi_C02);
                 break;
             case "C03":
-                gambarsolusi.setImageResource(R.drawable.percayadiri);
+                gambarsolusi.setImageResource(R.drawable.teknik);
                 penjelasan.setText(getResources().getString(R.string.penjelasan_C03));
                 solusiList = getResources().getStringArray(R.array.solusi_C03);
                 break;
             case "C04":
-                gambarsolusi.setImageResource(R.drawable.kecewadirisendiri);
+                gambarsolusi.setImageResource(R.drawable.cerita);
                 penjelasan.setText(getResources().getString(R.string.penjelasan_C04));
                 solusiList = getResources().getStringArray(R.array.solusi_C04);
                 break;
             case "C05":
-                gambarsolusi.setImageResource(R.drawable.psikis);
+                gambarsolusi.setImageResource(R.drawable.olahraga);
                 penjelasan.setText(getResources().getString(R.string.penjelasan_C05));
                 solusiList = getResources().getStringArray(R.array.solusi_C05);
                 break;
             case "C06":
-                gambarsolusi.setImageResource(R.drawable.depresi);
+                gambarsolusi.setImageResource(R.drawable.konsultasi);
                 penjelasan.setText(getResources().getString(R.string.penjelasan_C06));
                 solusiList = getResources().getStringArray(R.array.solusi_C06);
                 break;
             case "C07":
-                gambarsolusi.setImageResource(R.drawable.sulitsenang);
+                gambarsolusi.setImageResource(R.drawable.ceritaortu);
                 penjelasan.setText(getResources().getString(R.string.penjelasan_C07));
                 solusiList = getResources().getStringArray(R.array.solusi_C07);
                 break;

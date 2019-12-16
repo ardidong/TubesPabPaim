@@ -1,6 +1,9 @@
 package com.apahayo.tubespabpaim;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -14,6 +17,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NavBotActivity extends AppCompatActivity {
 
+    private SharedPreferences sharedPreferences;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +32,8 @@ public class NavBotActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HalamanUtamaFragment()).commit();
+        
+
 
 
 

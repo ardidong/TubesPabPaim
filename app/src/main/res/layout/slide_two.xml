@@ -6,13 +6,16 @@
     <LinearLayout style="@style/LinearStyle">
 
 
-        <TextView
-            style="@style/TextTitle"
-            android:text="@string/slide_two_title" />
+        <ImageView
+
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/removebg"
+            />
 
         <TextView
             style="@style/TextDescription"
-            android:text="@string/slide_two_description" />
+            android:text="@string/slide2" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -71,10 +71,10 @@
         android:text="Jika anda belum punya akun silahkan " />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
 
-            android:layout_marginEnd="57dp"
+            android:layout_marginEnd="20dp"
 
             android:onClick="masukKuy"
             android:text="Daftar!"

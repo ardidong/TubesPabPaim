@@ -2,6 +2,7 @@ package com.apahayo.tubespabpaim;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
     private LinearLayout dotsLayout;
+    SharedPreferences pref;
     private TextView[] dots;
     private int[] layouts;
     private Button buttonSkip, buttonNext;
@@ -34,6 +36,9 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+
+
 
         // Mengecek launch activity sebelum memanggil setContentView
         prefManager = new PrefManager(this);
@@ -126,9 +131,16 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void launchKuisioner() {
-        prefManager.setIsFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, NavBotActivity.class));
-        finish();
+        pref = getSharedPreferences("ActivityPREF", Context.MODE_PRIVATE);
+        if(pref.getBoolean("activity_executed", false)){
+            Intent intent = new Intent(this, NavBotActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            SharedPreferences.Editor ed = pref.edit();
+            ed.putBoolean("activity_executed", true);
+            ed.commit();
+        }
     }
 
     // Viewpager change listener

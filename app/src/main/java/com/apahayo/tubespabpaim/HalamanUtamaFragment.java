@@ -34,6 +34,7 @@ public class HalamanUtamaFragment extends Fragment {
 
     private ArrayList<Mood> moodList;
     private String uid,uidGoogle;
+    private TextView kataPertama;
     private GoogleSignInAccount acct;
     private AktifitasAdapter aktifitasAdapter;
     private DatabaseReference database;
@@ -56,6 +57,7 @@ public class HalamanUtamaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_halaman_utama, container, false);
         name = view.findViewById(R.id.namaUserTV);
         saranBtn = view.findViewById(R.id.btn_saran_menujur_serius);
+        kataPertama=view.findViewById(R.id.kata_pertama);
         database = FirebaseDatabase.getInstance().getReference();
 
         getSarans();
@@ -140,9 +142,12 @@ public class HalamanUtamaFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot moodDataSnapshot : dataSnapshot.getChildren()) {
+                        kataPertama.setVisibility(View.GONE);
                         Mood mood = moodDataSnapshot.getValue(Mood.class);
                         mood.setKey(moodDataSnapshot.getKey());
                         moodList.add(mood);
+
+
 
                     }
                 }
@@ -161,6 +166,7 @@ public class HalamanUtamaFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot moodDataSnapshot : dataSnapshot.getChildren()) {
+                        kataPertama.setVisibility(View.GONE);
                         Mood mood = moodDataSnapshot.getValue(Mood.class);
                         mood.setKey(moodDataSnapshot.getKey());
                         moodList.add(mood);

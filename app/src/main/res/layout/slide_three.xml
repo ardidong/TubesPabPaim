@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/SlideRootLayout"
     android:background="@drawable/background_color">
 
     <LinearLayout
         style="@style/LinearStyle">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        app:cardBackgroundColor="#005269"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        android:layout_height="200dp">
 
-        <TextView
-            style="@style/TextTitle"
-            android:text="@string/slide_three_title"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_depresi" />
+    </androidx.cardview.widget.CardView>
 
         <TextView
             style="@style/TextDescription"
-            android:text="@string/slide_three_description"/>
+            android:text="@string/slide3"/>
 
     </LinearLayout>
 

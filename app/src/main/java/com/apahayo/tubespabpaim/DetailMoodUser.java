@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class DetailMoodUser extends AppCompatActivity {
 
     private ArrayList<Mood> moodList;
-    private TextView tanggal,jam,kegiatan,detail,quote;
+    private TextView tanggal,jam,kegiatan,detail,quote,judulquote;
     private String uidGoogle;
     private ImageView emot;
     private Button edit;
@@ -46,6 +46,7 @@ public class DetailMoodUser extends AppCompatActivity {
         tanggal = findViewById(R.id.tanggalET);
         jam = findViewById(R.id.jamET);
         kegiatan = findViewById(R.id.judulKegiatanTV);
+        judulquote = findViewById(R.id.judul_quote);
         detail = findViewById(R.id.detailKegiatanTV);
         quote = findViewById(R.id.quoteTV);
         emot = findViewById(R.id.emotIV);
@@ -62,17 +63,24 @@ public class DetailMoodUser extends AppCompatActivity {
         detail.setText(mood.getDeskripsi());
         quote.setText(mood.getQuote());
 
+
         acct = GoogleSignIn.getLastSignedInAccount(DetailMoodUser.this);
 
         switch (mood.getValue()) {
             case 1:
                 emot.setImageResource(R.drawable.ic_mood_sedihsekali);
+                judulquote.setVisibility(View.GONE);
+                quote.setVisibility(View.GONE);
                 break;
             case 2:
                 emot.setImageResource(R.drawable.ic_mood_netral);
+                judulquote.setVisibility(View.GONE);
+                quote.setVisibility(View.GONE);
+
                 break;
             case 3:
                 emot.setImageResource(R.drawable.ic_mood_senangsekali);
+
                 break;
         }
 

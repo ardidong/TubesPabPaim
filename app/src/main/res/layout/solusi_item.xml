@@ -17,7 +17,7 @@
         android:layout_marginBottom="20dp"
         android:text="aljsndand"
         android:elevation="5dp"
-        android:textSize="14sp"
+        android:textSize="22sp"
         android:textColor="@android:color/black"
         android:background="@drawable/btn_solusi"
         android:layout_height="match_parent">

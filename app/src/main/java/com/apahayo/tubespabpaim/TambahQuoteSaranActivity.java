@@ -73,7 +73,7 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
                         quoteET.getWindowToken(), 0);
 
                 Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.HOUR_OF_DAY,7);
+                calendar.set(Calendar.HOUR_OF_DAY,8);
                 calendar.set(Calendar.MINUTE,0);
                 calendar.set(Calendar.SECOND,0);
 
