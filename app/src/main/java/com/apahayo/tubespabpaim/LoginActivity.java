@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null && firebaseAuth.getCurrentUser().isEmailVerified()){
-                    Intent intent = new Intent(LoginActivity.this,WelcomeActivity.class);
+                    Intent intent = new Intent(LoginActivity.this,NavBotActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                     startActivity(intent);
@@ -90,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         if (mAuth.getCurrentUser().isEmailVerified()) {
-                                            onStart();
                                             Intent intent = new Intent(LoginActivity.this,WelcomeActivity.class);
                                             startActivity(intent);
                                         } else {
