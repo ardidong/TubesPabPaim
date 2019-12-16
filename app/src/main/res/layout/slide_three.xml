@@ -7,19 +7,12 @@
     <LinearLayout
         style="@style/LinearStyle">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        app:cardBackgroundColor="#005269"
-        app:cardCornerRadius="10dp"
-        android:layout_margin="5dp"
-        android:elevation="10dp"
-        android:layout_height="200dp">
-
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_depresi" />
-    </androidx.cardview.widget.CardView>
+
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/rmovebggg"
+            />
 
         <TextView
             style="@style/TextDescription"
