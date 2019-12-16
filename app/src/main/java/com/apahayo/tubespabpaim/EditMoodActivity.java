@@ -103,7 +103,7 @@ public class EditMoodActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(EditMoodActivity.this);
-                myAlertBuilder.setMessage("Apakah kamu yakin ingin menghapus?");
+                myAlertBuilder.setMessage("Simpan hasil edit?");
 
                 myAlertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
@@ -140,7 +140,7 @@ public class EditMoodActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void aVoid) {
                     AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(EditMoodActivity.this);
-                    myAlertBuilder.setMessage("Data berhasil dihapus !");
+                    myAlertBuilder.setMessage("Data berhasil diedit !");
 
                     myAlertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
@@ -167,7 +167,7 @@ public class EditMoodActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void aVoid) {
                     AlertDialog.Builder myAlertBuilder = new AlertDialog.Builder(EditMoodActivity.this);
-                    myAlertBuilder.setMessage("Data berhasil dihapus !");
+                    myAlertBuilder.setMessage("Data berhasil diedit !");
 
                     myAlertBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
