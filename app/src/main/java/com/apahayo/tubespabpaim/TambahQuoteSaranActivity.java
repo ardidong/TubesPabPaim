@@ -87,12 +87,6 @@ public class TambahQuoteSaranActivity extends AppCompatActivity {
                         calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
 
 
-
-
-
-
-
-
                 if (quoteET.length() != 0) {
                     String quote = quoteET.getText().toString();
                     mood.setQuote(quote);

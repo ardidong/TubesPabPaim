@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="quotes">
+        <item>“Kau tau? Bahagia itu sangat sederhana, mensyukuri, mencintai dan menjaga apa yang kita miliki”</item>
+        <item>“Berbahagialah dan alasan untuk bahagia akan datang mengikuti”</item>
+        <item>“Kamu berhak untuk menjadi bahagia, kamu berhak untuk hidup dengan kehidupan yang mencerahkanmu. Jangan pernah lupakan itu”</item>
+        <item>“Belajarlah bagaimana untuk menjadi bahagia atas apa yang kamu miliki ketika kamu sibuk mengejar apa yang kamu inginkan”</item>
+        <item>“Kunci dari kebahagiaan adalah merelakan segala situasi terjadi apa adanya daripada memikirkan apa yang seharusnya terjadi”</item>
+        <item>“Kebahagiaan yang sesungguhnya adalah ketika menikmati apa yang terjadi saat ini tanpa ada rasa cemas terhadap masa depan”</item>
+        <item>“Hanya ada satu cara menuju kebahagiaan dan caranya adalah dengan berhenti mengkhawatirkan hal-hal yang melebihi kekuatan dari keinginan kita”</item>
+        <item>“Cara terbaik untuk menghibur dirimu adalah dengan mencoba untuk menghibur orang lain”</item>
+    </string-array>
+</resources>

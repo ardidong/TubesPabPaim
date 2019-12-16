@@ -127,7 +127,9 @@ public class HasilActivity extends AppCompatActivity {
                 solusiList = getResources().getStringArray(R.array.solusi_C07);
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + kode);
+                //gambarsolusi.setImageResource(R.drawable.ceritaortu);
+                penjelasan.setText(getResources().getString(R.string.penjelasan_normal));
+                solusiList = getResources().getStringArray(R.array.solusi_Normal);
         }
 
         listSolusi.addAll(Arrays.asList(solusiList));

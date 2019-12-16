@@ -102,43 +102,47 @@ public class PilihGejalaActivity extends AppCompatActivity {
     public void prosesGejala(){
         hasilGejala = new ArrayList<>();
         String hasil = "";
+        boolean kena = false;
 
         if(mPilihan.get(0) && mPilihan.get(2) && mPilihan.get(7)){
             //C01
             hasilGejala.add("C01");
+            kena = true;
         }
         if(mPilihan.get(1) && mPilihan.get(6) && mPilihan.get(18)){
             //C02
             hasilGejala.add("C02");
+            kena = true;
         }
         if(mPilihan.get(3) && mPilihan.get(5)){
             //C03
             hasilGejala.add("C03");
+            kena = true;
         }
         if(mPilihan.get(8) && mPilihan.get(9) && mPilihan.get(4)){
             //C04
             hasilGejala.add("C04");
+            kena = true;
         }
         if(mPilihan.get(10) && mPilihan.get(12) && mPilihan.get(17) && mPilihan.get(19)){
             //C05
             hasilGejala.add("C05");
+            kena = true;
         }
         if(mPilihan.get(15) && mPilihan.get(16) && mPilihan.get(14)){
             //C06
             hasilGejala.add("C06");
+            kena = true;
         }
         if(mPilihan.get(13) && mPilihan.get(11)){
             //C02
             hasilGejala.add("C07");
+            kena = true;
         }
 
         int frequency = Collections.frequency(mPilihan, true);
-        if(frequency<=5){
-            hasil+="normal";
-        }else if(frequency<=12){
-            hasil+="mulai";
-        }else{
-            hasil+="Mengganggu";
+        if(frequency<=5 && kena == false){
+            hasilGejala.add("normal");
         }
 
         unggahDiagnosis();

@@ -40,4 +40,8 @@
         <item>Cobalah memulai obrolan atau berkunjung ke orangtuamu, saudaramu atau temanmu.</item>
     </string-array>
 
+    <string-array name="solusi_Normal">
+        <item>Konsumsi "vitamin" untuk psikis ya seperti selftalk positif, olahraga, dan selalu berpikir positif agar kesehatan mentalmu tetap terjaga</item>
+    </string-array>
+
 </resources>

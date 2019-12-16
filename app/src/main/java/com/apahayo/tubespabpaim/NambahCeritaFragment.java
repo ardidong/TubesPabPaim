@@ -128,8 +128,11 @@ public class NambahCeritaFragment extends Fragment {
 
             if (value == 3) {
                 intent = new Intent(getContext(), TambahQuoteSaranActivity.class);
-            } else {
+            } else if (value == 1) {
                 intent = new Intent(getContext(), PilihGejalaActivity.class);
+                unggahSad(mood);
+            } else {
+                intent = new Intent(getContext(), TampilkanQuoteActivity.class);
                 unggahSad(mood);
             }
             intent.putExtra("data", mood);
