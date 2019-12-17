@@ -126,10 +126,15 @@ public class HasilActivity extends AppCompatActivity {
                 penjelasan.setText(getResources().getString(R.string.penjelasan_C07));
                 solusiList = getResources().getStringArray(R.array.solusi_C07);
                 break;
+            case "mulai" :
+                penjelasan.setText(R.string.penjelasan_mulai);
+                solusiList = getResources().getStringArray(R.array.solusi_Mulai);
+                break;
             default:
                 //gambarsolusi.setImageResource(R.drawable.ceritaortu);
                 penjelasan.setText(getResources().getString(R.string.penjelasan_normal));
                 solusiList = getResources().getStringArray(R.array.solusi_Normal);
+                break;
         }
 
         listSolusi.addAll(Arrays.asList(solusiList));

@@ -143,6 +143,8 @@ public class PilihGejalaActivity extends AppCompatActivity {
         int frequency = Collections.frequency(mPilihan, true);
         if(frequency<=5 && kena == false){
             hasilGejala.add("normal");
+        }else if (frequency<=12 && kena == false){
+            hasilGejala.add("mulai");
         }
 
         unggahDiagnosis();

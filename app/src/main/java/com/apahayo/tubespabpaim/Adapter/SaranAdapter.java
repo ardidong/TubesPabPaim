@@ -78,7 +78,36 @@ public class SaranAdapter extends RecyclerView.Adapter {
         }
 
         public void bindView(String currentSaran) {
-            saranButton.setText(currentSaran);
+
+            switch (currentSaran) {
+                case "C01":
+                    saranButton.setText("Solusi 1");
+                    break;
+                case "C02":
+                    saranButton.setText("Solusi 2");
+                    break;
+                case "C03":
+                    saranButton.setText("Solusi 3");
+                    break;
+                case "C04":
+                    saranButton.setText("Solusi 4");
+                    break;
+                case "C05":
+                    saranButton.setText("Solusi 5");
+                    break;
+                case "C06":
+                    saranButton.setText("Solusi 6");
+                    break;
+                case "C07":
+                    saranButton.setText("Solusi 7");
+                    break;
+                case "mulai" :
+                    saranButton.setText("Saran Untukmu");
+                    break;
+                default:
+                    saranButton.setText("Saran Untukmu");
+                    break;
+            }
 
         }
 

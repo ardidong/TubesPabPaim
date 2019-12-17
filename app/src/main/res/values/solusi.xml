@@ -44,4 +44,12 @@
         <item>Konsumsi "vitamin" untuk psikis ya seperti selftalk positif, olahraga, dan selalu berpikir positif agar kesehatan mentalmu tetap terjaga</item>
     </string-array>
 
+    <string-array name="solusi_Mulai">
+        <item>Lakukan relaksasi pernafasan dalam setiap pagi dan malam atau ketika Anda mengalami stres/ tidak nyaman. Sebelum melakukan relaksasi pernafasan dalam minumlah air hangat, kemudian duduk bersandar, pejamkan mata, tarik nafas yang dalam (nafas perut) 6-7 detik, tahan sebentar 3-4 detik, selanjutnya hembuskan pelan-pelan melalui mulut 7-8 detik. Lakukan relaksasi pernafasan tersebut 4-6 kali putaran atau sampai anda merasa lebih tenang. </item>
+        <item>Lakukan selftalk positif,  misalnya ketika anda bercermin atau ketika sebelum tidur</item>
+        <item>Coba ceritakan apa yang Anda rasakan kepada orang yang Anda percaya.</item>
+    </string-array>
+
+
+
 </resources>
