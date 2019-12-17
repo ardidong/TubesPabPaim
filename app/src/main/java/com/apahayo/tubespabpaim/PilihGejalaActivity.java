@@ -129,7 +129,7 @@ public class PilihGejalaActivity extends AppCompatActivity {
             hasilGejala.add("C05");
             kena = true;
         }
-        if(mPilihan.get(15) && mPilihan.get(16) && mPilihan.get(14)){
+        if(mPilihan.get(15) || mPilihan.get(16) || mPilihan.get(14)){
             //C06
             hasilGejala.add("C06");
             kena = true;

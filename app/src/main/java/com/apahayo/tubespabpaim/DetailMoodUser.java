@@ -44,7 +44,6 @@ public class DetailMoodUser extends AppCompatActivity {
         setContentView(R.layout.activity_detail_mood_user);
 
         tanggal = findViewById(R.id.tanggalET);
-        jam = findViewById(R.id.jamET);
         kegiatan = findViewById(R.id.judulKegiatanTV);
         judulquote = findViewById(R.id.judul_quote);
         detail = findViewById(R.id.detailKegiatanTV);

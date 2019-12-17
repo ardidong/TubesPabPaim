@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:hint="Kegiatan apa yang kamu lakuin?"
+            android:hint="Apa yang kamu pikirkan?"
             android:layout_marginTop="30dp"
             android:inputType="text"
             android:background="@drawable/backgroundkegiatan"
